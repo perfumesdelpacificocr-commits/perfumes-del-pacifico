@@ -1,1 +1,441 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#050505">
 
+  <title>Perfumes del Pacífico | Fragancias que dejan huella</title>
+
+  <meta name="description" content="Descubrí perfumes para dama, caballero y unisex. Perfumes del Pacífico, fragancias que dejan huella.">
+  <meta name="author" content="Perfumes del Pacífico">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=Great+Vibes&family=Montserrat:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="styles.css">
+
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+  <script src="config.js" defer></script>
+  <script src="script.js" defer></script>
+</head>
+
+<body>
+
+  <!-- =================================
+       ENCABEZADO
+  ================================== -->
+
+  <header class="site-header" id="inicio">
+
+    <a class="brand" href="#inicio" aria-label="Perfumes del Pacífico, inicio">
+      <span class="brand-symbol">P</span>
+
+      <span class="brand-name">
+        <span>PERFUMES</span>
+        <small>DEL PACÍFICO</small>
+      </span>
+    </a>
+
+    <nav class="main-nav" aria-label="Navegación principal">
+      <a class="nav-link active" href="#inicio">
+        <span>⌂</span> Inicio
+      </a>
+
+      <a class="nav-link" href="#catalogo">
+        <span>▦</span> Catálogo
+      </a>
+
+      <a class="nav-link" href="#mas-vendidos">
+        <span>★</span> Más Vendidos
+      </a>
+
+      <a class="nav-link" href="#ofertas">
+        <span>♢</span> Ofertas
+      </a>
+
+      <a class="nav-link" href="#contacto">
+        <span>☏</span> Contacto
+      </a>
+    </nav>
+
+    <div class="header-actions">
+      <button class="icon-button" id="search-toggle" aria-label="Buscar perfumes">
+        <span>⌕</span>
+      </button>
+
+      <span class="header-divider"></span>
+
+      <button class="icon-button" id="cart-toggle" aria-label="Abrir carrito">
+        <span>♧</span>
+        <span class="cart-count" id="cart-count">0</span>
+      </button>
+
+      <button class="mobile-menu-button" id="mobile-menu-toggle" aria-label="Abrir menú">
+        ☰
+      </button>
+    </div>
+
+  </header>
+
+
+  <!-- =================================
+       BUSCADOR
+  ================================== -->
+
+  <section class="search-panel" id="search-panel" hidden>
+    <form id="search-form">
+      <input
+        type="search"
+        id="search-input"
+        placeholder="Buscar tu perfume favorito..."
+        aria-label="Buscar perfume"
+      >
+      <button type="submit">Buscar</button>
+      <button type="button" id="search-close" aria-label="Cerrar búsqueda">×</button>
+    </form>
+  </section>
+
+
+  <!-- =================================
+       PORTADA PRINCIPAL
+  ================================== -->
+
+  <main>
+
+    <section class="hero" aria-label="Perfumes del Pacífico">
+
+      <div class="hero-background"></div>
+
+      <div class="hero-content">
+
+        <div class="hero-copy">
+          <h1>
+            PERFUMES<br>
+            DEL PACÍFICO
+          </h1>
+
+          <p class="hero-slogan">
+            Fragancias que dejan huella.
+          </p>
+
+          <a class="hero-button" href="#catalogo">
+            Explorar Catálogo <span>›</span>
+          </a>
+        </div>
+
+        <div class="hero-products">
+
+          <div class="hero-product hero-acqua">
+            <img
+              data-hero-image="acqua"
+              alt="Acqua di Giò de Giorgio Armani"
+              loading="eager"
+            >
+          </div>
+
+          <div class="hero-product hero-valentino">
+            <img
+              data-hero-image="valentino"
+              alt="Valentino Donna Born in Roma Intense"
+              loading="eager"
+            >
+          </div>
+
+          <div class="hero-product hero-ysl">
+            <img
+              data-hero-image="ysl"
+              alt="YSL perfume"
+              loading="eager"
+            >
+          </div>
+
+        </div>
+
+      </div>
+
+    </section>
+
+
+    <!-- =================================
+         CATEGORÍAS
+    ================================== -->
+
+    <section class="categories" aria-label="Categorías de perfumes">
+
+      <a class="category-item" href="#catalogo" data-category="dama">
+        <span class="category-icon">♙</span>
+        <span>Perfumes<br>Dama</span>
+      </a>
+
+      <a class="category-item" href="#catalogo" data-category="caballero">
+        <span class="category-icon">♟</span>
+        <span>Perfumes<br>Caballero</span>
+      </a>
+
+      <a class="category-item" href="#catalogo" data-category="unisex">
+        <span class="category-icon">⚥</span>
+        <span>Perfumes<br>Unisex</span>
+      </a>
+
+      <a class="category-item" href="#catalogo" data-category="arabe">
+        <span class="category-icon">♢</span>
+        <span>Perfumería<br>Árabe</span>
+      </a>
+
+      <a class="category-item" href="#catalogo" data-category="disenador">
+        <span class="category-icon">♛</span>
+        <span>Perfumería<br>Diseñador</span>
+      </a>
+
+      <a class="category-item" href="#catalogo" data-category="nicho">
+        <span class="category-icon">★</span>
+        <span>Perfumería<br>Nicho</span>
+      </a>
+
+    </section>
+
+
+    <!-- =================================
+         TOP 5
+    ================================== -->
+
+    <section class="bestsellers" id="mas-vendidos">
+
+      <div class="top-five-panel">
+
+        <div class="section-heading">
+          <h2><span>♛</span> TOP 5 · Dama</h2>
+          <a href="#catalogo" data-filter-gender="dama">
+            Ver todos <span>→</span>
+          </a>
+        </div>
+
+        <div class="product-grid top-five-grid" id="top-women">
+          <div class="loading-message">Cargando perfumes...</div>
+        </div>
+
+      </div>
+
+
+      <div class="top-five-panel">
+
+        <div class="section-heading">
+          <h2><span>♛</span> TOP 5 · Caballero</h2>
+          <a href="#catalogo" data-filter-gender="caballero">
+            Ver todos <span>→</span>
+          </a>
+        </div>
+
+        <div class="product-grid top-five-grid" id="top-men">
+          <div class="loading-message">Cargando perfumes...</div>
+        </div>
+
+      </div>
+
+    </section>
+
+
+    <!-- =================================
+         OFERTAS
+    ================================== -->
+
+    <section class="offers-section" id="ofertas">
+
+      <div class="section-title-row">
+        <h2><span>♢</span> Ofertas especiales</h2>
+        <span class="gold-line"></span>
+      </div>
+
+      <div class="product-grid catalog-grid" id="offers-products">
+        <div class="loading-message">Cargando ofertas...</div>
+      </div>
+
+    </section>
+
+
+    <!-- =================================
+         CATÁLOGO GENERAL
+    ================================== -->
+
+    <section class="catalog-section" id="catalogo">
+
+      <div class="catalog-heading">
+
+        <div class="section-title-row">
+          <h2><span>♢</span> Nuestro Catálogo</h2>
+          <span class="gold-line"></span>
+        </div>
+
+        <a class="catalog-button" href="#catalogo">
+          Ver Catálogo Completo <span>→</span>
+        </a>
+
+      </div>
+
+      <div class="catalog-toolbar">
+
+        <select id="category-filter" aria-label="Filtrar por categoría">
+          <option value="">Todas las categorías</option>
+          <option value="dama">Dama</option>
+          <option value="caballero">Caballero</option>
+          <option value="unisex">Unisex</option>
+          <option value="arabe">Perfumería Árabe</option>
+          <option value="disenador">Perfumería Diseñador</option>
+          <option value="nicho">Perfumería Nicho</option>
+        </select>
+
+        <select id="gender-filter" aria-label="Filtrar por género">
+          <option value="">Todos</option>
+          <option value="dama">Dama</option>
+          <option value="caballero">Caballero</option>
+          <option value="unisex">Unisex</option>
+        </select>
+
+        <select id="sort-products" aria-label="Ordenar productos">
+          <option value="default">Ordenar por</option>
+          <option value="price-asc">Precio: menor a mayor</option>
+          <option value="price-desc">Precio: mayor a menor</option>
+          <option value="name">Nombre</option>
+        </select>
+
+      </div>
+
+      <div class="product-grid catalog-grid" id="catalog-products">
+        <div class="loading-message">Cargando nuestro catálogo...</div>
+      </div>
+
+      <div class="empty-catalog" id="empty-catalog" hidden>
+        <p>Pronto tendremos más fragancias disponibles.</p>
+      </div>
+
+    </section>
+
+
+    <!-- =================================
+         CONTACTO
+    ================================== -->
+
+    <section class="contact-section" id="contacto">
+
+      <div class="contact-content">
+
+        <h2>Perfumes del Pacífico</h2>
+
+        <p class="contact-slogan">
+          Fragancias que dejan huella.
+        </p>
+
+        <p>Alajuela, Costa Rica</p>
+        <p>Entregas en todo Costa Rica</p>
+        <p>Atención: 7:00 a. m. a 10:00 p. m.</p>
+
+        <a
+          class="contact-whatsapp"
+          href="https://wa.me/50661075656"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          Consultar por WhatsApp
+        </a>
+
+      </div>
+
+    </section>
+
+  </main>
+
+
+  <!-- =================================
+       CARRITO
+  ================================== -->
+
+  <aside class="cart-panel" id="cart-panel" aria-label="Carrito de compras" hidden>
+
+    <div class="cart-header">
+      <h2>Tu carrito</h2>
+      <button id="cart-close" aria-label="Cerrar carrito">×</button>
+    </div>
+
+    <div id="cart-items">
+      <p>Tu carrito está vacío.</p>
+    </div>
+
+    <div class="cart-footer">
+      <p>Total: <strong id="cart-total">₡0</strong></p>
+
+      <a
+        id="checkout-whatsapp"
+        href="https://wa.me/50661075656"
+        target="_blank"
+        rel="noopener noreferrer"
+      >
+        Finalizar pedido por WhatsApp
+      </a>
+    </div>
+
+  </aside>
+
+
+  <!-- =================================
+       DETALLE DEL PRODUCTO
+  ================================== -->
+
+  <dialog class="product-dialog" id="product-dialog">
+
+    <button class="dialog-close" id="product-dialog-close" aria-label="Cerrar">
+      ×
+    </button>
+
+    <div id="product-dialog-content"></div>
+
+  </dialog>
+
+
+  <!-- =================================
+       WHATSAPP FLOTANTE
+  ================================== -->
+
+  <a
+    class="whatsapp-float"
+    href="https://wa.me/50661075656?text=Hola%2C%20quiero%20informaci%C3%B3n%20sobre%20un%20perfume."
+    target="_blank"
+    rel="noopener noreferrer"
+    aria-label="Hacer pedido por WhatsApp"
+  >
+
+    <span class="whatsapp-icon">☏</span>
+
+    <span class="whatsapp-label">
+      ¡Haz tu pedido<br>por WhatsApp!
+    </span>
+
+  </a>
+
+
+  <!-- =================================
+       PIE DE PÁGINA
+  ================================== -->
+
+  <footer class="site-footer">
+
+    <div class="footer-brand">
+      <span class="footer-symbol">P</span>
+      <span>PERFUMES DEL PACÍFICO</span>
+    </div>
+
+    <p>Fragancias que dejan huella.</p>
+
+    <p>© <span id="current-year">2026</span> Perfumes del Pacífico. Todos los derechos reservados.</p>
+
+  </footer>
+
+
+  <!-- MENSAJES DEL SISTEMA -->
+
+  <div class="toast-message" id="toast-message" role="status" aria-live="polite"></div>
+
+</body>
+</html>
