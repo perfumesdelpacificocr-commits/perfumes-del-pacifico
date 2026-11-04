@@ -1,1 +1,1579 @@
+/* ==================================================
+   PERFUMES DEL PACÍFICO
+   DISEÑO OFICIAL DE LA TIENDA
+   Negro elegante | Oro | Azul petróleo
+================================================== */
 
+:root {
+  --black: #050505;
+  --black-soft: #0b0b0b;
+  --black-card: #111111;
+  --gold: #d9b568;
+  --gold-light: #f7df9c;
+  --gold-dark: #80602d;
+  --petroleum: #087d9b;
+  --petroleum-light: #12a5c1;
+  --white: #f8f5ed;
+  --muted: #c9c2b4;
+  --border: rgba(217,181,104,.58);
+
+  --font-title: 'Cormorant Garamond', Georgia, serif;
+  --font-body: 'Montserrat', Arial, sans-serif;
+  --font-script: 'Great Vibes', cursive;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  scroll-behavior: smooth;
+  scroll-padding-top: 85px;
+}
+
+body {
+  min-width: 320px;
+  overflow-x: hidden;
+  background: var(--black);
+  color: var(--white);
+  font-family: var(--font-body);
+}
+
+button,
+input,
+select {
+  font: inherit;
+}
+
+button,
+a,
+select {
+  -webkit-tap-highlight-color: transparent;
+}
+
+button {
+  cursor: pointer;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+img {
+  display: block;
+  max-width: 100%;
+}
+
+[hidden] {
+  display: none !important;
+}
+
+/* ==================================================
+   1. ENCABEZADO
+================================================== */
+
+.site-header {
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+
+  width: 100%;
+  min-height: 80px;
+  padding: 8px 4.5%;
+
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 22px;
+
+  background: linear-gradient(
+    100deg,
+    #030303,
+    #05090b 65%,
+    #04131a
+  );
+
+  border-bottom: 1px solid var(--border);
+  box-shadow: 0 3px 22px rgba(0,0,0,.6);
+}
+
+.brand {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  flex-shrink: 0;
+}
+
+.brand-symbol {
+  width: 105px;
+  height: 65px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  position: relative;
+
+  color: var(--gold-light);
+  font-family: var(--font-title);
+  font-size: 76px;
+  font-weight: 700;
+
+  text-shadow: 0 0 12px rgba(217,181,104,.3);
+}
+
+.brand-symbol::after {
+  content: "";
+  position: absolute;
+  width: 90%;
+  height: 12px;
+  left: 5%;
+  bottom: 4px;
+
+  border-bottom: 4px solid var(--petroleum);
+  border-radius: 50%;
+  transform: rotate(-9deg);
+}
+
+.brand-name {
+  display: flex;
+  flex-direction: column;
+
+  color: var(--gold-light);
+  font-family: var(--font-title);
+  font-size: 30px;
+  letter-spacing: 5px;
+  line-height: 1;
+  white-space: nowrap;
+}
+
+.brand-name small {
+  margin-top: 7px;
+  color: var(--petroleum-light);
+  font-family: var(--font-body);
+  font-size: 14px;
+  letter-spacing: 5px;
+}
+
+.main-nav {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+}
+
+.nav-link {
+  padding: 12px 14px;
+  border-radius: 22px;
+  font-size: 13px;
+  font-weight: 500;
+  white-space: nowrap;
+  transition: .25s ease;
+}
+
+.nav-link span {
+  margin-right: 5px;
+  color: var(--gold);
+  font-size: 19px;
+}
+
+.nav-link:hover,
+.nav-link.active {
+  background: linear-gradient(
+    135deg,
+    #f9e3a9,
+    #c69b50
+  );
+  color: #111;
+}
+
+.nav-link:hover span,
+.nav-link.active span {
+  color: #111;
+}
+
+.header-actions {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+}
+
+.icon-button,
+.mobile-menu-button {
+  position: relative;
+  border: 0;
+  background: transparent;
+  color: white;
+  font-size: 30px;
+  transition: .2s;
+}
+
+.icon-button:hover {
+  color: var(--gold-light);
+}
+
+.header-divider {
+  width: 1px;
+  height: 30px;
+  background: var(--gold-dark);
+}
+
+.cart-count {
+  position: absolute;
+  top: -6px;
+  right: -8px;
+
+  min-width: 17px;
+  height: 17px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  border-radius: 50%;
+  background: var(--gold);
+  color: #111;
+  font-size: 10px;
+}
+
+.mobile-menu-button {
+  display: none;
+}
+
+/* ==================================================
+   2. BUSCADOR
+================================================== */
+
+.search-panel {
+  padding: 18px 5%;
+  background: #101010;
+  border-bottom: 1px solid var(--border);
+}
+
+.search-panel form {
+  display: flex;
+  gap: 10px;
+  max-width: 800px;
+  margin: auto;
+}
+
+.search-panel input {
+  flex: 1;
+  min-width: 0;
+  padding: 13px;
+
+  border: 1px solid var(--gold-dark);
+  border-radius: 8px;
+
+  background: #050505;
+  color: white;
+}
+
+.search-panel button {
+  padding: 10px 18px;
+  border: 0;
+  border-radius: 8px;
+
+  background: var(--gold);
+  color: #111;
+  font-weight: 600;
+}
+
+/* ==================================================
+   3. PORTADA PRINCIPAL
+================================================== */
+
+.hero {
+  position: relative;
+  height: 340px;
+  min-height: 340px;
+  overflow: hidden;
+
+  background:
+    radial-gradient(
+      ellipse at 80% 50%,
+      #152c33 0%,
+      transparent 50%
+    ),
+    linear-gradient(
+      110deg,
+      #030303,
+      #080d10 65%,
+      #020506
+    );
+
+  border-bottom: 2px solid var(--gold-dark);
+}
+
+.hero-background {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+
+  background:
+    radial-gradient(
+      ellipse at 75% 45%,
+      rgba(12,76,91,.35),
+      transparent 43%
+    ),
+    radial-gradient(
+      ellipse at 5% 50%,
+      rgba(9,93,113,.25),
+      transparent 40%
+    ),
+    linear-gradient(
+      110deg,
+      #030303,
+      #071014 75%,
+      #030303
+    );
+}
+
+.hero-content {
+  position: relative;
+  z-index: 2;
+
+  width: 100%;
+  height: 100%;
+
+  display: grid;
+  grid-template-columns: 49% 51%;
+  align-items: center;
+
+  padding: 0 5%;
+}
+
+.hero-copy {
+  position: relative;
+  z-index: 3;
+  padding-left: 2%;
+}
+
+.hero-copy h1 {
+  color: var(--gold-light);
+  font-family: var(--font-title);
+  font-size: clamp(42px, 5vw, 72px);
+  font-weight: 500;
+  line-height: .88;
+  letter-spacing: 2px;
+
+  text-shadow: 0 3px 12px rgba(0,0,0,.8);
+}
+
+.hero-slogan {
+  margin-top: 15px;
+
+  color: white;
+  font-family: var(--font-script);
+  font-size: clamp(26px, 3vw, 43px);
+}
+
+.hero-button {
+  min-width: 225px;
+  margin-top: 19px;
+  padding: 11px 24px;
+
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 22px;
+
+  border: 1.5px solid var(--gold);
+  border-radius: 30px;
+
+  font-size: 14px;
+  transition: .25s;
+}
+
+.hero-button span {
+  color: var(--gold-light);
+  font-size: 23px;
+}
+
+.hero-button:hover {
+  background: var(--gold);
+  color: #111;
+}
+
+.hero-products {
+  width: 100%;
+  height: 100%;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 20px;
+}
+
+.hero-product {
+  width: 31%;
+  height: 90%;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.hero-product img {
+  width: 100%;
+  height: 100%;
+
+  object-fit: contain;
+  object-position: center bottom;
+
+  filter: drop-shadow(0 10px 12px rgba(0,0,0,.65));
+}
+
+.hero-valentino img {
+  filter:
+    drop-shadow(0 12px 14px rgba(0,0,0,.65))
+    saturate(1.22);
+}
+
+/* ==================================================
+   4. CATEGORÍAS
+================================================== */
+
+.categories {
+  min-height: 83px;
+
+  display: grid;
+  grid-template-columns: repeat(6, minmax(0, 1fr));
+  align-items: center;
+
+  padding: 8px 5%;
+
+  background: linear-gradient(
+    90deg,
+    #050505,
+    #10100e,
+    #050505
+  );
+
+  border-bottom: 1px solid var(--gold-dark);
+}
+
+.category-item {
+  min-height: 58px;
+  padding: 5px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 13px;
+
+  border-right: 1px solid rgba(217,181,104,.22);
+
+  font-size: 13px;
+  line-height: 1.35;
+  transition: .25s;
+}
+
+.category-item:last-child {
+  border-right: 0;
+}
+
+.category-item:hover {
+  color: var(--gold-light);
+  background: rgba(217,181,104,.06);
+}
+
+.category-icon {
+  color: var(--gold-light);
+  font-size: 36px;
+  text-shadow: 0 0 10px rgba(217,181,104,.25);
+}
+
+/* ==================================================
+   5. TOP 5 DAMA Y CABALLERO
+================================================== */
+
+.bestsellers {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 12px;
+
+  margin-top: 0;
+  padding: 0 1.8%;
+}
+
+.top-five-panel {
+  min-width: 0;
+  padding: 8px;
+
+  border: 1px solid var(--border);
+  border-radius: 13px;
+
+  background: linear-gradient(
+    145deg,
+    #0c0c0c,
+    #050505
+  );
+
+  box-shadow:
+    0 0 10px rgba(217,181,104,.06),
+    inset 0 0 15px rgba(217,181,104,.025);
+}
+
+.section-heading {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 8px;
+
+  padding: 0 8px 7px;
+}
+
+.section-heading h2,
+.section-title-row h2 {
+  color: var(--white);
+  font-family: var(--font-title);
+  font-size: 29px;
+  font-weight: 600;
+}
+
+.section-heading h2 span,
+.section-title-row h2 span {
+  color: var(--gold-light);
+  margin-right: 5px;
+}
+
+.section-heading > a {
+  color: var(--gold-light);
+  font-size: 14px;
+  white-space: nowrap;
+}
+
+.section-heading > a span {
+  margin-left: 5px;
+  font-size: 21px;
+}
+
+.product-grid {
+  display: grid;
+  min-width: 0;
+}
+
+.top-five-grid {
+  grid-template-columns: repeat(5, minmax(0, 1fr));
+  gap: 6px;
+}
+
+/* ==================================================
+   6. TARJETAS DE PERFUMES
+================================================== */
+
+.product-card {
+  position: relative;
+  min-width: 0;
+  overflow: hidden;
+
+  border: 1px solid rgba(217,181,104,.38);
+  border-radius: 9px;
+
+  background: linear-gradient(
+    180deg,
+    #171717,
+    #080808
+  );
+
+  transition:
+    transform .25s,
+    border-color .25s,
+    box-shadow .25s;
+}
+
+.product-card:hover {
+  transform: translateY(-4px);
+  border-color: var(--gold-light);
+  box-shadow: 0 8px 22px rgba(217,181,104,.12);
+}
+
+.product-image {
+  width: 100%;
+  height: 145px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  overflow: hidden;
+  background: #f1eee9;
+}
+
+.product-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  mix-blend-mode: multiply;
+}
+
+.product-info {
+  min-height: 53px;
+  padding: 9px 5px;
+  text-align: center;
+}
+
+.product-info h3 {
+  color: white;
+  font-size: 12px;
+  line-height: 1.35;
+  font-weight: 500;
+}
+
+.product-info .product-brand {
+  margin-top: 3px;
+  color: var(--muted);
+  font-size: 10px;
+}
+
+.product-price {
+  margin-top: 7px;
+  color: var(--gold-light);
+  font-size: 13px;
+  font-weight: 600;
+}
+
+.product-old-price {
+  margin-right: 5px;
+  color: #a8a8a8;
+  font-size: 11px;
+  text-decoration: line-through;
+}
+
+.product-badge {
+  position: absolute;
+  top: 7px;
+  left: 7px;
+  z-index: 2;
+
+  padding: 4px 7px;
+  border-radius: 4px;
+
+  background: var(--gold);
+  color: #111;
+  font-size: 9px;
+  font-weight: 700;
+}
+
+.product-actions {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+
+  padding: 0 7px 9px;
+}
+
+.product-actions button {
+  padding: 7px 4px;
+
+  border: 1px solid var(--gold-dark);
+  border-radius: 6px;
+
+  background: transparent;
+  color: white;
+  font-size: 10px;
+  transition: .2s;
+}
+
+.product-actions button:hover {
+  background: var(--gold);
+  color: #111;
+}
+
+/* ==================================================
+   7. OFERTAS Y CATÁLOGO
+================================================== */
+
+.offers-section,
+.catalog-section {
+  padding: 10px 1.8% 22px;
+}
+
+.offers-section {
+  padding-top: 20px;
+}
+
+.section-title-row {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  margin-bottom: 13px;
+}
+
+.section-title-row h2 {
+  font-size: 32px;
+  white-space: nowrap;
+}
+
+.gold-line {
+  flex: 1;
+  height: 1px;
+  background: linear-gradient(
+    90deg,
+    var(--gold),
+    transparent
+  );
+}
+
+.catalog-heading {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 15px;
+}
+
+.catalog-heading .section-title-row {
+  flex: 1;
+}
+
+.catalog-button {
+  flex-shrink: 0;
+  padding: 10px 17px;
+
+  border: 1px solid var(--gold);
+  border-radius: 24px;
+
+  color: var(--gold-light);
+  font-size: 12px;
+  transition: .25s;
+}
+
+.catalog-button:hover {
+  background: var(--gold);
+  color: #111;
+}
+
+.catalog-toolbar {
+  display: flex;
+  justify-content: flex-end;
+  flex-wrap: wrap;
+  gap: 9px;
+  margin-bottom: 13px;
+}
+
+.catalog-toolbar select {
+  max-width: 190px;
+  padding: 9px;
+
+  border: 1px solid var(--gold-dark);
+  border-radius: 6px;
+
+  background: #101010;
+  color: white;
+  font-size: 11px;
+}
+
+.catalog-grid {
+  grid-template-columns: repeat(8, minmax(0, 1fr));
+  gap: 8px;
+}
+
+.catalog-grid .product-image {
+  height: 145px;
+}
+
+.catalog-grid .product-card {
+  min-height: 215px;
+}
+
+.empty-catalog,
+.loading-message {
+  padding: 30px 12px;
+  color: var(--muted);
+  font-size: 13px;
+  text-align: center;
+}
+
+/* ==================================================
+   8. CONTACTO
+================================================== */
+
+.contact-section {
+  padding: 40px 20px;
+  text-align: center;
+
+  border-top: 1px solid var(--gold-dark);
+  border-bottom: 1px solid var(--gold-dark);
+
+  background:
+    radial-gradient(
+      ellipse at center,
+      rgba(9,74,88,.18),
+      transparent 70%
+    ),
+    #080808;
+}
+
+.contact-content h2 {
+  color: var(--gold-light);
+  font-family: var(--font-title);
+  font-size: 38px;
+}
+
+.contact-slogan {
+  margin: 7px 0 15px;
+  font-family: var(--font-script);
+  font-size: 28px;
+}
+
+.contact-content > p:not(.contact-slogan) {
+  margin: 5px;
+  color: var(--muted);
+  font-size: 13px;
+}
+
+.contact-whatsapp {
+  display: inline-block;
+  margin-top: 18px;
+  padding: 12px 23px;
+
+  border: 1px solid var(--gold);
+  border-radius: 25px;
+
+  color: var(--gold-light);
+  transition: .25s;
+}
+
+.contact-whatsapp:hover {
+  background: var(--gold);
+  color: #111;
+}
+
+/* ==================================================
+   9. CARRITO
+================================================== */
+
+.cart-panel {
+  position: fixed;
+  top: 0;
+  right: 0;
+  z-index: 2000;
+
+  width: min(420px, 100%);
+  height: 100vh;
+  height: 100dvh;
+
+  padding: 22px;
+  overflow-y: auto;
+
+  border-left: 1px solid var(--gold);
+  background: #0c0c0c;
+
+  box-shadow: -10px 0 30px rgba(0,0,0,.6);
+}
+
+.cart-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding-bottom: 15px;
+  border-bottom: 1px solid var(--gold-dark);
+}
+
+.cart-header h2 {
+  color: var(--gold-light);
+  font-family: var(--font-title);
+  font-size: 28px;
+}
+
+.cart-header button,
+.dialog-close {
+  border: 0;
+  background: transparent;
+  color: white;
+  font-size: 30px;
+}
+
+#cart-items {
+  padding: 20px 0;
+  font-size: 13px;
+}
+
+.cart-item {
+  display: flex;
+  justify-content: space-between;
+  gap: 10px;
+
+  padding: 12px 0;
+  border-bottom: 1px solid #333;
+}
+
+.cart-footer {
+  padding-top: 20px;
+  border-top: 1px solid var(--gold-dark);
+}
+
+.cart-footer p {
+  margin-bottom: 15px;
+}
+
+.cart-footer strong {
+  color: var(--gold-light);
+}
+
+.cart-footer > a {
+  display: block;
+  padding: 12px;
+
+  border-radius: 8px;
+  background: var(--gold);
+  color: #111;
+
+  font-size: 12px;
+  font-weight: 700;
+  text-align: center;
+}
+
+/* ==================================================
+   10. DETALLE DEL PRODUCTO
+================================================== */
+
+.product-dialog {
+  width: min(650px, 94%);
+  max-height: 90vh;
+  max-height: 90dvh;
+
+  margin: auto;
+  padding: 25px;
+
+  overflow-y: auto;
+
+  border: 1px solid var(--gold);
+  border-radius: 14px;
+
+  background: #101010;
+  color: white;
+}
+
+.product-dialog::backdrop {
+  background: rgba(0,0,0,.8);
+}
+
+.dialog-close {
+  display: block;
+  margin-left: auto;
+}
+
+/* ==================================================
+   11. WHATSAPP FLOTANTE
+================================================== */
+
+.whatsapp-float {
+  position: fixed;
+  right: 20px;
+  bottom: 22px;
+  z-index: 900;
+
+  max-width: 160px;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+}
+
+.whatsapp-icon {
+  width: 65px;
+  height: 65px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  border-radius: 50%;
+  background: #17c965;
+  color: white;
+
+  font-size: 37px;
+  box-shadow: 0 4px 18px rgba(0,0,0,.5);
+
+  transition: transform .2s;
+}
+
+.whatsapp-float:hover .whatsapp-icon {
+  transform: scale(1.08);
+}
+
+.whatsapp-label {
+  padding: 10px 13px;
+
+  border: 1px solid var(--gold);
+  border-radius: 13px;
+
+  background: #080808;
+  color: var(--gold-light);
+
+  font-size: 12px;
+  line-height: 1.4;
+  text-align: center;
+
+  box-shadow: 0 4px 14px rgba(0,0,0,.4);
+}
+
+/* ==================================================
+   12. PIE DE PÁGINA
+================================================== */
+
+.site-footer {
+  padding: 22px 15px 90px;
+
+  background: #030303;
+  color: var(--muted);
+
+  font-size: 11px;
+  text-align: center;
+}
+
+.footer-brand {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+
+  color: var(--gold-light);
+  font-family: var(--font-title);
+  font-size: 20px;
+  letter-spacing: 3px;
+}
+
+.footer-symbol {
+  font-size: 32px;
+}
+
+.site-footer p {
+  margin-top: 8px;
+}
+
+/* ==================================================
+   13. MENSAJES
+================================================== */
+
+.toast-message {
+  position: fixed;
+  left: 50%;
+  bottom: 20px;
+  z-index: 3000;
+
+  max-width: calc(100% - 30px);
+  padding: 12px 20px;
+
+  transform: translateX(-50%);
+
+  border-radius: 8px;
+  background: var(--gold);
+  color: #111;
+
+  font-size: 12px;
+  text-align: center;
+
+  box-shadow: 0 5px 20px rgba(0,0,0,.5);
+}
+
+/* ==================================================
+   14. COMPUTADOR Y TABLETS
+================================================== */
+
+@media (max-width: 1100px) {
+
+  .site-header {
+    padding: 8px 2%;
+    gap: 10px;
+  }
+
+  .brand-symbol {
+    width: 65px;
+    font-size: 58px;
+  }
+
+  .brand-name {
+    font-size: 22px;
+    letter-spacing: 3px;
+  }
+
+  .brand-name small {
+    font-size: 11px;
+    letter-spacing: 3px;
+  }
+
+  .main-nav {
+    gap: 2px;
+  }
+
+  .nav-link {
+    padding: 10px 8px;
+    font-size: 11px;
+  }
+
+  .hero {
+    height: 310px;
+  }
+
+  .hero-content {
+    padding: 0 3%;
+  }
+
+  .hero-copy h1 {
+    font-size: 54px;
+  }
+
+  .product-image {
+    height: 125px;
+  }
+
+  .catalog-grid {
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+  }
+}
+
+/* ==================================================
+   15. TABLETS PEQUEÑAS
+================================================== */
+
+@media (max-width: 900px) {
+
+  .site-header {
+    gap: 8px;
+  }
+
+  .brand-name {
+    font-size: 19px;
+    letter-spacing: 2px;
+  }
+
+  .brand-name small {
+    font-size: 9px;
+    letter-spacing: 2px;
+  }
+
+  .nav-link {
+    padding: 9px 6px;
+    font-size: 10px;
+  }
+
+  .header-actions {
+    gap: 9px;
+  }
+
+  .hero-copy h1 {
+    font-size: 45px;
+  }
+
+  .hero-products {
+    gap: 8px;
+  }
+
+  .category-item {
+    gap: 6px;
+    font-size: 11px;
+  }
+
+  .category-icon {
+    font-size: 28px;
+  }
+
+  .top-five-grid .product-image {
+    height: 115px;
+  }
+}
+
+/* ==================================================
+   16. CELULARES
+================================================== */
+
+@media (max-width: 760px) {
+
+  html {
+    scroll-padding-top: 70px;
+  }
+
+  .site-header {
+    min-height: 67px;
+    padding: 5px 12px;
+  }
+
+  .brand {
+    gap: 7px;
+  }
+
+  .brand-symbol {
+    width: 46px;
+    height: 48px;
+    font-size: 48px;
+  }
+
+  .brand-name {
+    font-size: 18px;
+    letter-spacing: 2px;
+  }
+
+  .brand-name small {
+    margin-top: 5px;
+    font-size: 9px;
+    letter-spacing: 2px;
+  }
+
+  .main-nav {
+    position: absolute;
+    top: 66px;
+    left: 0;
+    right: 0;
+
+    display: none;
+    flex-direction: column;
+    align-items: stretch;
+
+    padding: 12px;
+
+    background: #080808;
+    border-bottom: 1px solid var(--gold);
+  }
+
+  .main-nav.mobile-open {
+    display: flex;
+  }
+
+  .nav-link {
+    padding: 12px;
+    font-size: 13px;
+  }
+
+  .header-actions {
+    gap: 11px;
+  }
+
+  .icon-button {
+    font-size: 25px;
+  }
+
+  .header-divider {
+    height: 23px;
+  }
+
+  .mobile-menu-button {
+    display: block;
+    font-size: 25px;
+  }
+
+  /* PORTADA MÓVIL */
+
+  .hero {
+    height: auto;
+    min-height: 480px;
+  }
+
+  .hero-content {
+    min-height: 480px;
+    height: auto;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+
+    padding: 25px 12px 15px;
+  }
+
+  .hero-copy {
+    width: 100%;
+    padding: 0;
+    text-align: center;
+  }
+
+  .hero-copy h1 {
+    font-size: clamp(39px, 10vw, 57px);
+  }
+
+  .hero-slogan {
+    margin-top: 10px;
+    font-size: 31px;
+  }
+
+  .hero-button {
+    min-width: 190px;
+    margin-top: 13px;
+    padding: 9px 16px;
+  }
+
+  .hero-products {
+    width: 100%;
+    height: 220px;
+    gap: 3px;
+    margin-top: 15px;
+  }
+
+  .hero-product {
+    width: 33.333%;
+    height: 100%;
+    min-width: 0;
+  }
+
+  .hero-product img {
+    width: 100%;
+    height: 100%;
+    max-height: 210px;
+    object-fit: contain;
+  }
+
+  /* CATEGORÍAS MÓVILES */
+
+  .categories {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 4px;
+    padding: 8px 5px;
+  }
+
+  .category-item {
+    min-height: 65px;
+    gap: 5px;
+    padding: 5px 2px;
+
+    border-right: 0;
+    border-bottom: 1px solid rgba(217,181,104,.16);
+
+    font-size: 10px;
+  }
+
+  .category-icon {
+    font-size: 25px;
+  }
+
+  /* TOP 5 MÓVIL */
+
+  .bestsellers {
+    grid-template-columns: 1fr;
+    gap: 12px;
+    padding: 10px 9px;
+  }
+
+  .top-five-panel {
+    padding: 7px;
+  }
+
+  .section-heading h2 {
+    font-size: 24px;
+  }
+
+  .section-heading > a {
+    font-size: 11px;
+  }
+
+  .top-five-grid {
+    grid-template-columns: repeat(5, minmax(0, 1fr));
+    gap: 4px;
+  }
+
+  .top-five-grid .product-image {
+    height: clamp(70px, 22vw, 115px);
+  }
+
+  .top-five-grid .product-info {
+    min-height: 44px;
+    padding: 7px 3px;
+  }
+
+  .top-five-grid .product-info h3 {
+    font-size: 9px;
+  }
+
+  .top-five-grid .product-price {
+    font-size: 10px;
+  }
+
+  .top-five-grid .product-actions {
+    padding: 0 3px 6px;
+  }
+
+  .top-five-grid .product-actions button {
+    font-size: 8px;
+    padding: 6px 2px;
+  }
+
+  /* OFERTAS Y CATÁLOGO MÓVIL */
+
+  .offers-section,
+  .catalog-section {
+    padding: 13px 9px 20px;
+  }
+
+  .section-title-row h2 {
+    font-size: 26px;
+  }
+
+  .catalog-heading {
+    align-items: flex-start;
+    flex-direction: column;
+    gap: 5px;
+  }
+
+  .catalog-heading .section-title-row {
+    width: 100%;
+  }
+
+  .catalog-button {
+    align-self: flex-end;
+    padding: 8px 13px;
+    font-size: 10px;
+  }
+
+  .catalog-toolbar {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 7px;
+  }
+
+  .catalog-toolbar select {
+    width: 100%;
+    max-width: none;
+    min-width: 0;
+    padding: 9px 5px;
+    font-size: 10px;
+  }
+
+  .catalog-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 9px;
+  }
+
+  .catalog-grid .product-image {
+    height: clamp(125px, 40vw, 185px);
+  }
+
+  .catalog-grid .product-info h3 {
+    font-size: 11px;
+  }
+
+  .catalog-grid .product-price {
+    font-size: 12px;
+  }
+
+  /* CONTACTO MÓVIL */
+
+  .contact-section {
+    padding: 30px 12px;
+  }
+
+  .contact-content h2 {
+    font-size: 32px;
+  }
+
+  /* WHATSAPP MÓVIL */
+
+  .whatsapp-float {
+    right: 12px;
+    bottom: 14px;
+    max-width: 125px;
+    gap: 5px;
+  }
+
+  .whatsapp-icon {
+    width: 54px;
+    height: 54px;
+    font-size: 30px;
+  }
+
+  .whatsapp-label {
+    padding: 7px 9px;
+    font-size: 10px;
+  }
+
+  /* PIE DE PÁGINA */
+
+  .site-footer {
+    padding-bottom: 100px;
+  }
+
+  .footer-brand {
+    font-size: 16px;
+    letter-spacing: 2px;
+  }
+
+  /* DETALLES */
+
+  .product-dialog {
+    padding: 17px;
+  }
+
+  .search-panel {
+    padding: 12px;
+  }
+
+  .search-panel form {
+    gap: 6px;
+  }
+
+  .search-panel button {
+    padding: 9px 11px;
+    font-size: 11px;
+  }
+}
+
+/* ==================================================
+   17. CELULARES MUY PEQUEÑOS
+================================================== */
+
+@media (max-width: 380px) {
+
+  .brand-symbol {
+    width: 37px;
+    font-size: 41px;
+  }
+
+  .brand-name {
+    font-size: 15px;
+    letter-spacing: 1px;
+  }
+
+  .brand-name small {
+    font-size: 8px;
+    letter-spacing: 1px;
+  }
+
+  .header-actions {
+    gap: 7px;
+  }
+
+  .hero-copy h1 {
+    font-size: 37px;
+  }
+
+  .hero-products {
+    height: 185px;
+  }
+
+  .hero-product img {
+    max-height: 180px;
+  }
+
+  .category-item {
+    font-size: 9px;
+  }
+
+  .category-icon {
+    font-size: 21px;
+  }
+
+  .top-five-grid .product-info h3 {
+    font-size: 8px;
+  }
+
+  .top-five-grid .product-price {
+    font-size: 9px;
+  }
+
+  .catalog-grid .product-image {
+    height: 125px;
+  }
+
+  .whatsapp-float {
+    right: 8px;
+    bottom: 10px;
+  }
+}
+
+/* ==================================================
+   FIN DEL DISEÑO
+   PERFUMES DEL PACÍFICO
+================================================== */
