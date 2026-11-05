@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="es">
 <head>
@@ -5,22 +6,48 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta name="theme-color" content="#050505">
 
-  <title>Perfumes del Pac&#237;fico | Fragancias que dejan huella</title>
+  <title>Perfumes del Pacífico | Fragancias que dejan huella</title>
 
-  <meta name="description" content="Perfumes del Pac&#237;fico. Fragancias para dama, caballero y unisex. Entregas en Costa Rica.">
+  <meta name="description" content="Perfumes del Pacífico. Fragancias para dama, caballero y unisex. Entregas en toda Costa Rica.">
 
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 
   <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=Great+Vibes&family=Montserrat:wght@400;500;600;700&display=swap" rel="stylesheet">
 
-  <link rel="stylesheet" href="styles.css">
+  <link rel="stylesheet" href="styles.css?v=20261105-3">
 
   <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
   <script src="config.js" defer></script>
   <script src="script.js" defer></script>
 
   <style>
+    html {
+      width: 100%;
+      max-width: 100%;
+      overflow-x: hidden;
+      -webkit-text-size-adjust: 100%;
+      text-size-adjust: 100%;
+    }
+
+    body {
+      width: 100%;
+      max-width: 100%;
+      min-width: 0;
+      margin: 0;
+      overflow-x: hidden;
+    }
+
+    *, *::before, *::after {
+      box-sizing: border-box;
+    }
+
+    main {
+      width: 100%;
+      max-width: 100%;
+      min-width: 0;
+    }
+
     .site-icon {
       display: inline-block;
       width: 20px;
@@ -56,12 +83,76 @@
       height: 100%;
       object-fit: contain;
     }
+
+    @media screen and (max-width: 900px) {
+      .site-header {
+        width: 100%;
+        max-width: 100%;
+        min-width: 0;
+      }
+
+      .main-nav {
+        display: none;
+      }
+
+      .main-nav.mobile-open {
+        display: flex;
+      }
+
+      .mobile-menu-button {
+        display: block;
+      }
+
+      .categories {
+        display: grid;
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+      }
+
+      .bestsellers {
+        display: grid;
+        grid-template-columns: minmax(0, 1fr);
+      }
+
+      .top-five-panel {
+        min-width: 0;
+        max-width: 100%;
+      }
+
+      .top-five-grid {
+        display: grid;
+        grid-auto-flow: column;
+        grid-auto-columns: minmax(125px, 42%);
+        grid-template-columns: none;
+        overflow-x: auto;
+      }
+
+      .catalog-grid {
+        display: grid;
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+
+      .product-card {
+        min-width: 0;
+        max-width: 100%;
+      }
+
+      .product-info {
+        min-width: 0;
+      }
+
+      .product-info h3 {
+        white-space: normal;
+        overflow-wrap: break-word;
+        word-break: normal;
+      }
+    }
   </style>
 </head>
 
 <body>
 
-  <!-- ICONOS SVG SIN CARACTERES EXTRAÑOS -->
+  <!-- ICONOS SVG -->
+
   <svg xmlns="http://www.w3.org/2000/svg"
        style="position:absolute;width:0;height:0;overflow:hidden"
        aria-hidden="true">
@@ -132,28 +223,32 @@
       <path d="M20.5 11.7A8.5 8.5 0 0 1 8.2 19.3L3 21l1.7-5.1A8.5 8.5 0 1 1 20.5 11.7z"/>
       <path d="M8 8.5c.5 3 3 5.5 6 6l1.5-1.5-2-1-1 1a7 7 0 0 1-2.5-2.5l1-1-1-2z"/>
     </symbol>
+
   </svg>
 
   <!-- ENCABEZADO -->
 
   <header class="site-header" id="inicio">
 
-    <a class="brand" href="#inicio" aria-label="Perfumes del Pacifico">
+    <a class="brand" href="#inicio" aria-label="Perfumes del Pacífico">
 
       <span class="brand-symbol">
-        <img src="logo-simbolo.png"
-             alt="Logo Perfumes del Pacifico"
-             onerror="this.hidden=true;this.nextElementSibling.hidden=false">
+        <img
+          src="logo-simbolo.png"
+          alt="Logo Perfumes del Pacífico"
+          onerror="this.hidden=true;this.nextElementSibling.hidden=false"
+        >
         <span class="brand-fallback" hidden>P</span>
       </span>
 
       <span class="brand-name">
         <span>PERFUMES</span>
-        <small>DEL PAC&#205;FICO</small>
+        <small>DEL PACÍFICO</small>
       </span>
+
     </a>
 
-    <nav class="main-nav" aria-label="Navegacion principal">
+    <nav class="main-nav" aria-label="Navegación principal">
 
       <a class="nav-link active" href="#inicio">
         <svg class="site-icon"><use href="#ico-home"/></svg>
@@ -162,12 +257,12 @@
 
       <a class="nav-link" href="#catalogo">
         <svg class="site-icon"><use href="#ico-grid"/></svg>
-        Cat&#225;logo
+        Catálogo
       </a>
 
       <a class="nav-link" href="#mas-vendidos">
         <svg class="site-icon"><use href="#ico-star"/></svg>
-        M&#225;s Vendidos
+        Más Vendidos
       </a>
 
       <a class="nav-link" href="#ofertas">
@@ -184,67 +279,84 @@
 
     <div class="header-actions">
 
-      <button class="icon-button"
-              id="search-toggle"
-              aria-label="Buscar perfumes">
+      <button
+        class="icon-button"
+        id="search-toggle"
+        type="button"
+        aria-label="Buscar perfumes"
+      >
         <svg class="site-icon"><use href="#ico-search"/></svg>
       </button>
 
       <span class="header-divider"></span>
 
-      <button class="icon-button"
-              id="cart-toggle"
-              aria-label="Abrir carrito">
+      <button
+        class="icon-button"
+        id="cart-toggle"
+        type="button"
+        aria-label="Abrir carrito"
+      >
         <svg class="site-icon"><use href="#ico-cart"/></svg>
         <span class="cart-count" id="cart-count">0</span>
       </button>
 
-      <button class="mobile-menu-button"
-              id="mobile-menu-toggle"
-              aria-label="Abrir menu">
+      <button
+        class="mobile-menu-button"
+        id="mobile-menu-toggle"
+        type="button"
+        aria-label="Abrir menú"
+        aria-expanded="false"
+      >
         &#9776;
       </button>
 
     </div>
+
   </header>
 
   <!-- BUSCADOR -->
 
   <section class="search-panel" id="search-panel" hidden>
+
     <form id="search-form">
 
-      <input type="search"
-             id="search-input"
-             placeholder="Buscar tu perfume favorito..."
-             aria-label="Buscar perfume">
+      <input
+        type="search"
+        id="search-input"
+        placeholder="Buscar tu perfume favorito..."
+        aria-label="Buscar perfume"
+      >
 
       <button type="submit">Buscar</button>
 
-      <button type="button"
-              id="search-close"
-              aria-label="Cerrar busqueda">&#215;</button>
+      <button
+        type="button"
+        id="search-close"
+        aria-label="Cerrar búsqueda"
+      >&#215;</button>
 
     </form>
+
   </section>
 
   <main>
 
     <!-- PORTADA PRINCIPAL -->
 
-    <section class="hero" aria-label="Perfumes del Pacifico">
+    <section class="hero" aria-label="Perfumes del Pacífico">
 
-      <!-- Imagen completa para computadora -->
+      <img
+        class="hero-reference-art"
+        src="portada-franja.jpg"
+        alt="Perfumes del Pacífico con Acqua di Giò, Valentino Intense y YSL"
+        fetchpriority="high"
+      >
 
-      <img class="hero-reference-art"
-           src="portada-franja.jpg"
-           alt="Perfumes del Pacifico con Acqua di Gio, Valentino y YSL"
-           fetchpriority="high">
-
-      <a class="hero-reference-action"
-         href="#catalogo"
-         aria-label="Explorar catalogo"></a>
-
-      <!-- Version adaptable para celulares -->
+      <a
+        class="hero-reference-action"
+        href="#catalogo"
+        aria-label="Explorar catálogo"
+      ></a>
 
       <div class="hero-background"></div>
 
@@ -254,7 +366,7 @@
 
           <h1>
             PERFUMES<br>
-            DEL PAC&#205;FICO
+            DEL PACÍFICO
           </h1>
 
           <p class="hero-slogan">
@@ -262,7 +374,7 @@
           </p>
 
           <a class="hero-button" href="#catalogo">
-            Explorar Cat&#225;logo
+            Explorar Catálogo
             <span>&#8250;</span>
           </a>
 
@@ -271,89 +383,79 @@
         <div class="hero-products">
 
           <div class="hero-product hero-acqua">
-            <img src="acqua-hero.png"
-                 alt="Acqua di Gio Giorgio Armani"
-                 loading="eager">
+            <img
+              src="acqua-hero.png"
+              alt="Acqua di Giò Giorgio Armani"
+              loading="eager"
+            >
           </div>
 
           <div class="hero-product hero-valentino">
-            <img src="valentino-hero.png"
-                 alt="Valentino Born in Roma Intense"
-                 loading="eager">
+            <img
+              src="valentino-hero.png"
+              alt="Valentino Born in Roma Intense"
+              loading="eager"
+            >
           </div>
 
           <div class="hero-product hero-ysl">
-            <img src="ysl-hero.png"
-                 alt="YSL perfume"
-                 loading="eager">
+            <img
+              src="ysl-hero.png"
+              alt="YSL perfume"
+              loading="eager"
+            >
           </div>
 
         </div>
+
       </div>
+
     </section>
 
-    <!-- CATEGORIAS -->
+    <!-- CATEGORÍAS -->
 
-    <section class="categories" aria-label="Categorias de perfumes">
+    <section class="categories" aria-label="Categorías de perfumes">
 
-      <a class="category-item"
-         href="#catalogo"
-         data-category="dama">
-
+      <a class="category-item" href="#catalogo" data-category="dama">
         <span class="category-icon">
           <svg class="site-icon"><use href="#ico-female"/></svg>
         </span>
         <span>Perfumes<br>Dama</span>
       </a>
 
-      <a class="category-item"
-         href="#catalogo"
-         data-category="caballero">
-
+      <a class="category-item" href="#catalogo" data-category="caballero">
         <span class="category-icon">
           <svg class="site-icon"><use href="#ico-male"/></svg>
         </span>
         <span>Perfumes<br>Caballero</span>
       </a>
 
-      <a class="category-item"
-         href="#catalogo"
-         data-category="unisex">
-
+      <a class="category-item" href="#catalogo" data-category="unisex">
         <span class="category-icon">
           <svg class="site-icon"><use href="#ico-unisex"/></svg>
         </span>
         <span>Perfumes<br>Unisex</span>
       </a>
 
-      <a class="category-item"
-         href="#catalogo"
-         data-category="arabe">
-
+      <a class="category-item" href="#catalogo" data-category="arabe">
         <span class="category-icon">
           <svg class="site-icon"><use href="#ico-diamond"/></svg>
         </span>
-        <span>Perfumer&#237;a<br>&#193;rabe</span>
+        <span>Perfumería<br>Árabe</span>
       </a>
 
-      <a class="category-item"
-         href="#catalogo"
-         data-category="disenador">
-
+      <a class="category-item" href="#catalogo" data-category="disenador">
         <span class="category-icon">
           <svg class="site-icon"><use href="#ico-crown"/></svg>
         </span>
-        <span>Perfumer&#237;a<br>Dise&#241;ador</span>
+        <span>Perfumería<br>Diseñador</span>
       </a>
 
-      <a class="category-item"
-         href="#catalogo"
-         data-category="nicho">
-
+      <a class="category-item" href="#catalogo" data-category="nicho">
         <span class="category-icon">
           <svg class="site-icon"><use href="#ico-star"/></svg>
         </span>
-        <span>Perfumer&#237;a<br>Nicho</span>
+        <span>Perfumería<br>Nicho</span>
       </a>
 
     </section>
@@ -370,7 +472,7 @@
             <span>
               <svg class="site-icon"><use href="#ico-crown"/></svg>
             </span>
-            TOP 5 &#183; Dama
+            TOP 5 · Dama
           </h2>
 
           <a href="#catalogo" data-filter-gender="dama">
@@ -379,8 +481,7 @@
 
         </div>
 
-        <div class="product-grid top-five-grid"
-             id="top-women">
+        <div class="product-grid top-five-grid" id="top-women">
           <div class="loading-message">
             Cargando perfumes...
           </div>
@@ -396,7 +497,7 @@
             <span>
               <svg class="site-icon"><use href="#ico-crown"/></svg>
             </span>
-            TOP 5 &#183; Caballero
+            TOP 5 · Caballero
           </h2>
 
           <a href="#catalogo" data-filter-gender="caballero">
@@ -405,8 +506,7 @@
 
         </div>
 
-        <div class="product-grid top-five-grid"
-             id="top-men">
+        <div class="product-grid top-five-grid" id="top-men">
           <div class="loading-message">
             Cargando perfumes...
           </div>
@@ -430,10 +530,10 @@
         </h2>
 
         <span class="gold-line"></span>
+
       </div>
 
-      <div class="product-grid catalog-grid"
-           id="offers-products">
+      <div class="product-grid catalog-grid" id="offers-products">
         <div class="loading-message">
           Cargando ofertas...
         </div>
@@ -441,7 +541,7 @@
 
     </section>
 
-    <!-- CATALOGO -->
+    <!-- CATÁLOGO -->
 
     <section class="catalog-section" id="catalogo">
 
@@ -453,14 +553,15 @@
             <span>
               <svg class="site-icon"><use href="#ico-diamond"/></svg>
             </span>
-            Nuestro Cat&#225;logo
+            Nuestro Catálogo
           </h2>
 
           <span class="gold-line"></span>
+
         </div>
 
         <a class="catalog-button" href="#catalogo">
-          Ver Cat&#225;logo Completo
+          Ver Catálogo Completo
           <span>&#8594;</span>
         </a>
 
@@ -468,21 +569,19 @@
 
       <div class="catalog-toolbar">
 
-        <select id="category-filter"
-                aria-label="Filtrar por categoria">
+        <select id="category-filter" aria-label="Filtrar por categoría">
 
-          <option value="">Todas las categor&#237;as</option>
+          <option value="">Todas las categorías</option>
           <option value="dama">Dama</option>
           <option value="caballero">Caballero</option>
           <option value="unisex">Unisex</option>
-          <option value="arabe">Perfumer&#237;a &#193;rabe</option>
-          <option value="disenador">Perfumer&#237;a Dise&#241;ador</option>
-          <option value="nicho">Perfumer&#237;a Nicho</option>
+          <option value="arabe">Perfumería Árabe</option>
+          <option value="disenador">Perfumería Diseñador</option>
+          <option value="nicho">Perfumería Nicho</option>
 
         </select>
 
-        <select id="gender-filter"
-                aria-label="Filtrar por genero">
+        <select id="gender-filter" aria-label="Filtrar por género">
 
           <option value="">Todos</option>
           <option value="dama">Dama</option>
@@ -491,8 +590,7 @@
 
         </select>
 
-        <select id="sort-products"
-                aria-label="Ordenar productos">
+        <select id="sort-products" aria-label="Ordenar productos">
 
           <option value="default">Ordenar por</option>
           <option value="price-asc">Precio: menor a mayor</option>
@@ -503,20 +601,19 @@
 
       </div>
 
-      <div class="product-grid catalog-grid"
-           id="catalog-products">
+      <div class="product-grid catalog-grid" id="catalog-products">
 
         <div class="loading-message">
-          Cargando nuestro cat&#225;logo...
+          Cargando nuestro catálogo...
         </div>
 
       </div>
 
-      <div class="empty-catalog"
-           id="empty-catalog"
-           hidden>
+      <div class="empty-catalog" id="empty-catalog" hidden>
 
-        <p>Pronto tendremos m&#225;s fragancias disponibles.</p>
+        <p>
+          Pronto tendremos más fragancias disponibles.
+        </p>
 
       </div>
 
@@ -528,7 +625,7 @@
 
       <div class="contact-content">
 
-        <h2>Perfumes del Pac&#237;fico</h2>
+        <h2>Perfumes del Pacífico</h2>
 
         <p class="contact-slogan">
           Fragancias que dejan huella.
@@ -536,42 +633,50 @@
 
         <p>Alajuela, Costa Rica</p>
         <p>Entregas en todo Costa Rica</p>
-        <p>Atenci&#243;n: 7:00 a. m. a 10:00 p. m.</p>
+        <p>Atención: 7:00 a. m. a 10:00 p. m.</p>
 
-        <a class="contact-whatsapp"
-           href="https://wa.me/50661075656"
-           target="_blank"
-           rel="noopener noreferrer">
-
+        <a
+          class="contact-whatsapp"
+          href="https://wa.me/50661075656"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
           Consultar por WhatsApp
-
         </a>
 
       </div>
+
     </section>
 
   </main>
 
   <!-- CARRITO -->
 
-  <aside class="cart-panel"
-         id="cart-panel"
-         aria-label="Carrito de compras"
-         hidden>
+  <aside
+    class="cart-panel"
+    id="cart-panel"
+    aria-label="Carrito de compras"
+    hidden
+  >
 
     <div class="cart-header">
 
       <h2>Tu carrito</h2>
 
-      <button id="cart-close"
-              aria-label="Cerrar carrito">
+      <button
+        type="button"
+        id="cart-close"
+        aria-label="Cerrar carrito"
+      >
         &#215;
       </button>
 
     </div>
 
     <div id="cart-items">
-      <p>Tu carrito est&#225; vac&#237;o.</p>
+
+      <p>Tu carrito está vacío.</p>
+
     </div>
 
     <div class="cart-footer">
@@ -581,13 +686,13 @@
         <strong id="cart-total">&#8353;0</strong>
       </p>
 
-      <a id="checkout-whatsapp"
-         href="https://wa.me/50661075656"
-         target="_blank"
-         rel="noopener noreferrer">
-
+      <a
+        id="checkout-whatsapp"
+        href="https://wa.me/50661075656"
+        target="_blank"
+        rel="noopener noreferrer"
+      >
         Finalizar pedido por WhatsApp
-
       </a>
 
     </div>
@@ -596,12 +701,14 @@
 
   <!-- VISUALIZADOR DE PRODUCTOS -->
 
-  <dialog class="product-dialog"
-          id="product-dialog">
+  <dialog class="product-dialog" id="product-dialog">
 
-    <button class="dialog-close"
-            id="product-dialog-close"
-            aria-label="Cerrar">
+    <button
+      type="button"
+      class="dialog-close"
+      id="product-dialog-close"
+      aria-label="Cerrar"
+    >
       &#215;
     </button>
 
@@ -611,31 +718,35 @@
 
   <!-- WHATSAPP FLOTANTE -->
 
-  <a class="whatsapp-float"
-     href="https://wa.me/50661075656?text=Hola%2C%20quiero%20informaci%C3%B3n%20sobre%20un%20perfume."
-     target="_blank"
-     rel="noopener noreferrer"
-     aria-label="Hacer pedido por WhatsApp">
+  <a
+    class="whatsapp-float"
+    href="https://wa.me/50661075656?text=Hola%2C%20quiero%20informaci%C3%B3n%20sobre%20un%20perfume."
+    target="_blank"
+    rel="noopener noreferrer"
+    aria-label="Hacer pedido por WhatsApp"
+  >
 
     <span class="whatsapp-icon">
+
       <svg class="site-icon">
         <use href="#ico-whatsapp"/>
       </svg>
+
     </span>
 
     <span class="whatsapp-label">
-      &#161;Haz tu pedido<br>por WhatsApp!
+      ¡Haz tu pedido<br>por WhatsApp!
     </span>
 
   </a>
 
-  <!-- PIE DE PAGINA -->
+  <!-- PIE DE PÁGINA -->
 
   <footer class="site-footer">
 
     <div class="footer-brand">
       <span class="footer-symbol">P</span>
-      <span>PERFUMES DEL PAC&#205;FICO</span>
+      <span>PERFUMES DEL PACÍFICO</span>
     </div>
 
     <p>Fragancias que dejan huella.</p>
@@ -643,16 +754,21 @@
     <p>
       &#169;
       <span id="current-year">2026</span>
-      Perfumes del Pac&#237;fico.
+      Perfumes del Pacífico.
       Todos los derechos reservados.
     </p>
 
   </footer>
 
-  <div class="toast-message"
-       id="toast-message"
-       role="status"
-       aria-live="polite"></div>
+  <!-- MENSAJES DEL SISTEMA -->
+
+  <div
+    class="toast-message"
+    id="toast-message"
+    role="status"
+    aria-live="polite"
+    hidden
+  ></div>
 
 </body>
 </html>
