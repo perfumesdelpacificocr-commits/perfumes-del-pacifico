@@ -1,659 +1,101 @@
-
-<!DOCTYPE html>
-<html lang="es">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="theme-color" content="#050505">
-
-  <title>Perfumes del Pac&#237;fico | Fragancias que dejan huella</title>
-
-  <meta name="description" content="Perfumes del Pac&#237;fico. Fragancias para dama, caballero y unisex. Entregas en Costa Rica.">
-
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-
-  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=Great+Vibes&family=Montserrat:wght@400;500;600;700&display=swap" rel="stylesheet">
-
-  <link rel="stylesheet" href="styles.css">
-
-  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
-  <script src="config.js" defer></script>
-  <script src="script.js" defer></script>
-
-  <style>
-    .site-icon {
-      display: inline-block;
-      width: 20px;
-      height: 20px;
-      vertical-align: middle;
-      flex-shrink: 0;
-      fill: none;
-      stroke: currentColor;
-      stroke-width: 1.8;
-      stroke-linecap: round;
-      stroke-linejoin: round;
-    }
-
-    .category-icon .site-icon {
-      width: 32px;
-      height: 32px;
-    }
-
-    .section-heading .site-icon,
-    .section-title-row .site-icon {
-      width: 23px;
-      height: 23px;
-      color: #d9b568;
-    }
-
-    .whatsapp-icon .site-icon {
-      width: 35px;
-      height: 35px;
-    }
-
-    .brand-symbol img {
-      width: 100%;
-      height: 100%;
-      object-fit: contain;
-    }
-  </style>
-</head>
-
-<body>
-
-  <!-- ICONOS SVG SIN CARACTERES EXTRAÑOS -->
-  <svg xmlns="http://www.w3.org/2000/svg"
-       style="position:absolute;width:0;height:0;overflow:hidden"
-       aria-hidden="true">
-
-    <symbol id="ico-home" viewBox="0 0 24 24">
-      <path d="M3 10 12 3l9 7"/>
-      <path d="M5 9v12h14V9"/>
-      <path d="M9 21v-7h6v7"/>
-    </symbol>
-
-    <symbol id="ico-grid" viewBox="0 0 24 24">
-      <rect x="3" y="3" width="7" height="7" rx="1"/>
-      <rect x="14" y="3" width="7" height="7" rx="1"/>
-      <rect x="3" y="14" width="7" height="7" rx="1"/>
-      <rect x="14" y="14" width="7" height="7" rx="1"/>
-    </symbol>
-
-    <symbol id="ico-star" viewBox="0 0 24 24">
-      <path d="m12 2 3.1 6.3 6.9 1-5 4.9 1.2 6.8-6.2-3.2-6.2 3.2 1.2-6.8-5-4.9 6.9-1z"/>
-    </symbol>
-
-    <symbol id="ico-tag" viewBox="0 0 24 24">
-      <path d="M20 13 12 21 3 12V3h9l8 8a2 2 0 0 1 0 2z"/>
-      <circle cx="7.5" cy="7.5" r="1"/>
-    </symbol>
-
-    <symbol id="ico-phone" viewBox="0 0 24 24">
-      <path d="M22 16.9v3a2 2 0 0 1-2.2 2A19 19 0 0 1 3 5.1 2 2 0 0 1 5 3h3a2 2 0 0 1 2 1.7l.7 2.8a2 2 0 0 1-.5 2.1L9 10.9a16 16 0 0 0 4.1 4.1l1.3-1.3a2 2 0 0 1 2.1-.5l2.8.7a2 2 0 0 1 2.7 3z"/>
-    </symbol>
-
-    <symbol id="ico-search" viewBox="0 0 24 24">
-      <circle cx="11" cy="11" r="7"/>
-      <path d="m20 20-4-4"/>
-    </symbol>
-
-    <symbol id="ico-cart" viewBox="0 0 24 24">
-      <circle cx="9" cy="21" r="1"/>
-      <circle cx="20" cy="21" r="1"/>
-      <path d="M1 1h4l2.5 13a2 2 0 0 0 2 1.7h10a2 2 0 0 0 2-1.7L23 6H6"/>
-    </symbol>
-
-    <symbol id="ico-female" viewBox="0 0 24 24">
-      <circle cx="12" cy="8" r="5"/>
-      <path d="M12 13v9m-5-4h10"/>
-    </symbol>
-
-    <symbol id="ico-male" viewBox="0 0 24 24">
-      <circle cx="9" cy="15" r="5"/>
-      <path d="m13 11 8-8m-6 0h6v6"/>
-    </symbol>
-
-    <symbol id="ico-unisex" viewBox="0 0 24 24">
-      <circle cx="11" cy="11" r="5"/>
-      <path d="m15 7 5-5m-5 0h5v5M11 16v6m-4-3h8"/>
-    </symbol>
-
-    <symbol id="ico-diamond" viewBox="0 0 24 24">
-      <path d="M6 3h12l5 7-11 12L1 10z"/>
-      <path d="M1 10h22M6 3l3 7 3 12 3-12 3-7"/>
-    </symbol>
-
-    <symbol id="ico-crown" viewBox="0 0 24 24">
-      <path d="m2 8 5 5 5-8 5 8 5-5-2 12H4z"/>
-      <path d="M4 20h16"/>
-    </symbol>
-
-    <symbol id="ico-whatsapp" viewBox="0 0 24 24">
-      <path d="M20.5 11.7A8.5 8.5 0 0 1 8.2 19.3L3 21l1.7-5.1A8.5 8.5 0 1 1 20.5 11.7z"/>
-      <path d="M8 8.5c.5 3 3 5.5 6 6l1.5-1.5-2-1-1 1a7 7 0 0 1-2.5-2.5l1-1-1-2z"/>
-    </symbol>
-  </svg>
-
-  <!-- ENCABEZADO -->
-
-  <header class="site-header" id="inicio">
-
-    <a class="brand" href="#inicio" aria-label="Perfumes del Pacifico">
-
-      <span class="brand-symbol">
-        <img src="logo-simbolo.png"
-             alt="Logo Perfumes del Pacifico"
-             onerror="this.hidden=true;this.nextElementSibling.hidden=false">
-        <span class="brand-fallback" hidden>P</span>
-      </span>
-
-      <span class="brand-name">
-        <span>PERFUMES</span>
-        <small>DEL PAC&#205;FICO</small>
-      </span>
-    </a>
-
-    <nav class="main-nav" aria-label="Navegacion principal">
-
-      <a class="nav-link active" href="#inicio">
-        <svg class="site-icon"><use href="#ico-home"/></svg>
-        Inicio
-      </a>
-
-      <a class="nav-link" href="#catalogo">
-        <svg class="site-icon"><use href="#ico-grid"/></svg>
-        Cat&#225;logo
-      </a>
-
-      <a class="nav-link" href="#mas-vendidos">
-        <svg class="site-icon"><use href="#ico-star"/></svg>
-        M&#225;s Vendidos
-      </a>
-
-      <a class="nav-link" href="#ofertas">
-        <svg class="site-icon"><use href="#ico-tag"/></svg>
-        Ofertas
-      </a>
-
-      <a class="nav-link" href="#contacto">
-        <svg class="site-icon"><use href="#ico-phone"/></svg>
-        Contacto
-      </a>
-
-    </nav>
-
-    <div class="header-actions">
-
-      <button class="icon-button"
-              id="search-toggle"
-              aria-label="Buscar perfumes">
-        <svg class="site-icon"><use href="#ico-search"/></svg>
-      </button>
-
-      <span class="header-divider"></span>
-
-      <button class="icon-button"
-              id="cart-toggle"
-              aria-label="Abrir carrito">
-        <svg class="site-icon"><use href="#ico-cart"/></svg>
-        <span class="cart-count" id="cart-count">0</span>
-      </button>
-
-      <button class="mobile-menu-button"
-              id="mobile-menu-toggle"
-              aria-label="Abrir menu">
-        &#9776;
-      </button>
-
-    </div>
-  </header>
-
-  <!-- BUSCADOR -->
-
-  <section class="search-panel" id="search-panel" hidden>
-    <form id="search-form">
-
-      <input type="search"
-             id="search-input"
-             placeholder="Buscar tu perfume favorito..."
-             aria-label="Buscar perfume">
-
-      <button type="submit">Buscar</button>
-
-      <button type="button"
-              id="search-close"
-              aria-label="Cerrar busqueda">&#215;</button>
-
-    </form>
-  </section>
-
-  <main>
-
-    <!-- PORTADA PRINCIPAL -->
-
-    <section class="hero" aria-label="Perfumes del Pacifico">
-
-      <!-- Imagen completa para computadora -->
-
-      <img class="hero-reference-art"
-           src="portada-franja.jpg"
-           alt="Perfumes del Pacifico con Acqua di Gio, Valentino y YSL"
-           fetchpriority="high">
-
-      <a class="hero-reference-action"
-         href="#catalogo"
-         aria-label="Explorar catalogo"></a>
-
-      <!-- Version adaptable para celulares -->
-
-      <div class="hero-background"></div>
-
-      <div class="hero-content">
-
-        <div class="hero-copy">
-
-          <h1>
-            PERFUMES<br>
-            DEL PAC&#205;FICO
-          </h1>
-
-          <p class="hero-slogan">
-            Fragancias que dejan huella.
-          </p>
-
-          <a class="hero-button" href="#catalogo">
-            Explorar Cat&#225;logo
-            <span>&#8250;</span>
-          </a>
-
-        </div>
-
-        <div class="hero-products">
-
-          <div class="hero-product hero-acqua">
-            <img src="acqua-hero.png"
-                 alt="Acqua di Gio Giorgio Armani"
-                 loading="eager">
-          </div>
-
-          <div class="hero-product hero-valentino">
-            <img src="valentino-hero.png"
-                 alt="Valentino Born in Roma Intense"
-                 loading="eager">
-          </div>
-
-          <div class="hero-product hero-ysl">
-            <img src="ysl-hero.png"
-                 alt="YSL perfume"
-                 loading="eager">
-          </div>
-
-        </div>
-      </div>
-    </section>
-
-    <!-- CATEGORIAS -->
-
-    <section class="categories" aria-label="Categorias de perfumes">
-
-      <a class="category-item"
-         href="#catalogo"
-         data-category="dama">
-
-        <span class="category-icon">
-          <svg class="site-icon"><use href="#ico-female"/></svg>
-        </span>
-        <span>Perfumes<br>Dama</span>
-      </a>
-
-      <a class="category-item"
-         href="#catalogo"
-         data-category="caballero">
-
-        <span class="category-icon">
-          <svg class="site-icon"><use href="#ico-male"/></svg>
-        </span>
-        <span>Perfumes<br>Caballero</span>
-      </a>
-
-      <a class="category-item"
-         href="#catalogo"
-         data-category="unisex">
-
-        <span class="category-icon">
-          <svg class="site-icon"><use href="#ico-unisex"/></svg>
-        </span>
-        <span>Perfumes<br>Unisex</span>
-      </a>
-
-      <a class="category-item"
-         href="#catalogo"
-         data-category="arabe">
-
-        <span class="category-icon">
-          <svg class="site-icon"><use href="#ico-diamond"/></svg>
-        </span>
-        <span>Perfumer&#237;a<br>&#193;rabe</span>
-      </a>
-
-      <a class="category-item"
-         href="#catalogo"
-         data-category="disenador">
-
-        <span class="category-icon">
-          <svg class="site-icon"><use href="#ico-crown"/></svg>
-        </span>
-        <span>Perfumer&#237;a<br>Dise&#241;ador</span>
-      </a>
-
-      <a class="category-item"
-         href="#catalogo"
-         data-category="nicho">
-
-        <span class="category-icon">
-          <svg class="site-icon"><use href="#ico-star"/></svg>
-        </span>
-        <span>Perfumer&#237;a<br>Nicho</span>
-      </a>
-
-    </section>
-
-    <!-- TOP 5 -->
-
-    <section class="bestsellers" id="mas-vendidos">
-
-      <div class="top-five-panel">
-
-        <div class="section-heading">
-
-          <h2>
-            <span>
-              <svg class="site-icon"><use href="#ico-crown"/></svg>
-            </span>
-            TOP 5 &#183; Dama
-          </h2>
-
-          <a href="#catalogo" data-filter-gender="dama">
-            Ver todos <span>&#8594;</span>
-          </a>
-
-        </div>
-
-        <div class="product-grid top-five-grid"
-             id="top-women">
-          <div class="loading-message">
-            Cargando perfumes...
-          </div>
-        </div>
-
-      </div>
-
-      <div class="top-five-panel">
-
-        <div class="section-heading">
-
-          <h2>
-            <span>
-              <svg class="site-icon"><use href="#ico-crown"/></svg>
-            </span>
-            TOP 5 &#183; Caballero
-          </h2>
-
-          <a href="#catalogo" data-filter-gender="caballero">
-            Ver todos <span>&#8594;</span>
-          </a>
-
-        </div>
-
-        <div class="product-grid top-five-grid"
-             id="top-men">
-          <div class="loading-message">
-            Cargando perfumes...
-          </div>
-        </div>
-
-      </div>
-
-    </section>
-
-    <!-- OFERTAS -->
-
-    <section class="offers-section" id="ofertas">
-
-      <div class="section-title-row">
-
-        <h2>
-          <span>
-            <svg class="site-icon"><use href="#ico-tag"/></svg>
-          </span>
-          Ofertas especiales
-        </h2>
-
-        <span class="gold-line"></span>
-      </div>
-
-      <div class="product-grid catalog-grid"
-           id="offers-products">
-        <div class="loading-message">
-          Cargando ofertas...
-        </div>
-      </div>
-
-    </section>
-
-    <!-- CATALOGO -->
-
-    <section class="catalog-section" id="catalogo">
-
-      <div class="catalog-heading">
-
-        <div class="section-title-row">
-
-          <h2>
-            <span>
-              <svg class="site-icon"><use href="#ico-diamond"/></svg>
-            </span>
-            Nuestro Cat&#225;logo
-          </h2>
-
-          <span class="gold-line"></span>
-        </div>
-
-        <a class="catalog-button" href="#catalogo">
-          Ver Cat&#225;logo Completo
-          <span>&#8594;</span>
-        </a>
-
-      </div>
-
-      <div class="catalog-toolbar">
-
-        <select id="category-filter"
-                aria-label="Filtrar por categoria">
-
-          <option value="">Todas las categor&#237;as</option>
-          <option value="dama">Dama</option>
-          <option value="caballero">Caballero</option>
-          <option value="unisex">Unisex</option>
-          <option value="arabe">Perfumer&#237;a &#193;rabe</option>
-          <option value="disenador">Perfumer&#237;a Dise&#241;ador</option>
-          <option value="nicho">Perfumer&#237;a Nicho</option>
-
-        </select>
-
-        <select id="gender-filter"
-                aria-label="Filtrar por genero">
-
-          <option value="">Todos</option>
-          <option value="dama">Dama</option>
-          <option value="caballero">Caballero</option>
-          <option value="unisex">Unisex</option>
-
-        </select>
-
-        <select id="sort-products"
-                aria-label="Ordenar productos">
-
-          <option value="default">Ordenar por</option>
-          <option value="price-asc">Precio: menor a mayor</option>
-          <option value="price-desc">Precio: mayor a menor</option>
-          <option value="name">Nombre</option>
-
-        </select>
-
-      </div>
-
-      <div class="product-grid catalog-grid"
-           id="catalog-products">
-
-        <div class="loading-message">
-          Cargando nuestro cat&#225;logo...
-        </div>
-
-      </div>
-
-      <div class="empty-catalog"
-           id="empty-catalog"
-           hidden>
-
-        <p>Pronto tendremos m&#225;s fragancias disponibles.</p>
-
-      </div>
-
-    </section>
-
-    <!-- CONTACTO -->
-
-    <section class="contact-section" id="contacto">
-
-      <div class="contact-content">
-
-        <h2>Perfumes del Pac&#237;fico</h2>
-
-        <p class="contact-slogan">
-          Fragancias que dejan huella.
-        </p>
-
-        <p>Alajuela, Costa Rica</p>
-        <p>Entregas en todo Costa Rica</p>
-        <p>Atenci&#243;n: 7:00 a. m. a 10:00 p. m.</p>
-
-        <a class="contact-whatsapp"
-           href="https://wa.me/50661075656"
-           target="_blank"
-           rel="noopener noreferrer">
-
-          Consultar por WhatsApp
-
-        </a>
-
-      </div>
-    </section>
-
-  </main>
-
-  <!-- CARRITO -->
-
-  <aside class="cart-panel"
-         id="cart-panel"
-         aria-label="Carrito de compras"
-         hidden>
-
-    <div class="cart-header">
-
-      <h2>Tu carrito</h2>
-
-      <button id="cart-close"
-              aria-label="Cerrar carrito">
-        &#215;
-      </button>
-
-    </div>
-
-    <div id="cart-items">
-      <p>Tu carrito est&#225; vac&#237;o.</p>
-    </div>
-
-    <div class="cart-footer">
-
-      <p>
-        Total:
-        <strong id="cart-total">&#8353;0</strong>
-      </p>
-
-      <a id="checkout-whatsapp"
-         href="https://wa.me/50661075656"
-         target="_blank"
-         rel="noopener noreferrer">
-
-        Finalizar pedido por WhatsApp
-
-      </a>
-
-    </div>
-
-  </aside>
-
-  <!-- VISUALIZADOR DE PRODUCTOS -->
-
-  <dialog class="product-dialog"
-          id="product-dialog">
-
-    <button class="dialog-close"
-            id="product-dialog-close"
-            aria-label="Cerrar">
-      &#215;
-    </button>
-
-    <div id="product-dialog-content"></div>
-
-  </dialog>
-
-  <!-- WHATSAPP FLOTANTE -->
-
-  <a class="whatsapp-float"
-     href="https://wa.me/50661075656?text=Hola%2C%20quiero%20informaci%C3%B3n%20sobre%20un%20perfume."
-     target="_blank"
-     rel="noopener noreferrer"
-     aria-label="Hacer pedido por WhatsApp">
-
-    <span class="whatsapp-icon">
-      <svg class="site-icon">
-        <use href="#ico-whatsapp"/>
-      </svg>
-    </span>
-
-    <span class="whatsapp-label">
-      &#161;Haz tu pedido<br>por WhatsApp!
-    </span>
-
-  </a>
-
-  <!-- PIE DE PAGINA -->
-
-  <footer class="site-footer">
-
-    <div class="footer-brand">
-      <span class="footer-symbol">P</span>
-      <span>PERFUMES DEL PAC&#205;FICO</span>
-    </div>
-
-    <p>Fragancias que dejan huella.</p>
-
-    <p>
-      &#169;
-      <span id="current-year">2026</span>
-      Perfumes del Pac&#237;fico.
-      Todos los derechos reservados.
-    </p>
-
-  </footer>
-
-  <div class="toast-message"
-       id="toast-message"
-       role="status"
-       aria-live="polite"></div>
-
-</body>
-</html>
+    margin-left:0; margin-right:0;
+  }
+  .site-header { position:sticky; top:0; z-index:1000; min-height:65px;
+    display:flex; flex-wrap:nowrap; align-items:center; gap:7px;
+    padding:6px 10px; }
+  .brand { flex:1 1 auto; min-width:0; max-width:calc(100% - 115px); gap:6px; }
+  .brand-symbol { flex:0 0 43px; width:43px; height:46px; }
+  .brand-symbol img { max-width:100%; max-height:100%; object-fit:contain; }
+  .brand-name { min-width:0; font-size:clamp(15px,4.6vw,21px); letter-spacing:1px; }
+  .brand-name small { font-size:clamp(7px,2.2vw,10px); letter-spacing:1px; }
+  .header-actions { display:flex; flex:0 0 auto; gap:7px; }
+  .icon-button, .mobile-menu-button { display:grid; place-items:center;
+    min-width:27px; min-height:36px; padding:2px; font-size:23px; }
+  .header-divider { display:none; }
+  .main-nav { display:none; position:absolute; top:100%; left:0; right:0;
+    width:100%; flex-direction:column; align-items:stretch;
+    padding:10px; gap:3px; background:#090909; border-bottom:1px solid #876a37; }
+  .main-nav.mobile-open, .main-nav.is-open { display:flex; }
+  .nav-link { font-size:13px; padding:11px; }
+  .mobile-menu-button { display:grid; }
+  .site-icon { width:19px; height:19px; }
+
+  /* Portada: mostrar los elementos adaptados al movil */
+  .hero { width:100%; height:auto; min-height:0; aspect-ratio:auto; overflow:hidden; }
+  .hero-reference-art, .hero-reference-action { display:none; }
+  .hero-background { display:block; position:absolute; inset:0; z-index:0;
+    background:radial-gradient(ellipse at 72% 65%,#16425b88,transparent 65%),#030609; }
+  .hero-content { position:relative; z-index:1; display:flex;
+    flex-direction:column; align-items:center; width:100%; height:auto;
+    padding:21px 12px 14px; }
+  .hero-copy { width:100%; min-width:0; text-align:center; }
+  .hero-copy h1 { margin:0; font-size:clamp(37px,9.6vw,54px); line-height:.92; }
+  .hero-slogan { font-size:clamp(25px,7vw,35px); margin:10px 0 0; }
+  .hero-button { display:inline-flex; margin-top:12px; padding:10px 18px; }
+  .hero-products { position:relative; display:flex; align-items:flex-end;
+    justify-content:center; width:100%; height:clamp(175px,58vw,260px);
+    gap:3px; margin-top:13px; padding:0; }
+  .hero-products::before { content:''; position:absolute; inset:8% 0 2%; z-index:0;
+    background:radial-gradient(ellipse at 27% 62%,#e7f3ff70,transparent 38%),
+               radial-gradient(ellipse at 65% 46%,#d6e6f377,transparent 46%);
+    filter:blur(13px); pointer-events:none; }
+  .hero-product { position:relative; z-index:1; display:flex; align-items:flex-end;
+    justify-content:center; width:33.333%; min-width:0; height:100%; }
+  .hero-product img { width:100%; height:100%; max-width:100%; max-height:100%;
+    object-fit:contain; object-position:center bottom; }
+
+  /* Categorias ordenadas: tres por fila */
+  .categories { display:grid; grid-template-columns:repeat(3,minmax(0,1fr));
+    gap:0; padding:8px 5px; }
+  .category-item { min-width:0; min-height:75px; display:flex; flex-direction:column;
+    align-items:center; justify-content:center; gap:5px; padding:8px 3px;
+    text-align:center; border-right:0; border-bottom:1px solid #d9b56833;
+    font-size:clamp(9px,2.5vw,12px); line-height:1.3; }
+  .category-icon { display:grid; place-items:center; height:30px; font-size:26px; }
+  .category-icon .site-icon { width:27px; height:27px; }
+
+  /* TOP 5: paneles apilados y tarjetas desplazables horizontalmente */
+  .bestsellers { display:grid; grid-template-columns:minmax(0,1fr); gap:12px;
+    padding:12px 9px 4px; }
+  .top-five-panel { width:100%; min-width:0; padding:9px; }
+  .section-heading { display:flex; align-items:center; justify-content:space-between;
+    min-width:0; gap:8px; }
+  .section-heading h2 { font-size:clamp(23px,7vw,29px); line-height:1.1; }
+  .section-heading a { font-size:11px; flex-shrink:0; }
+  .top-five-grid { display:grid; grid-template-columns:none;
+    grid-auto-flow:column; grid-auto-columns:minmax(130px,43%);
+    gap:9px; overflow-x:auto; overscroll-behavior-inline:contain;
+    scroll-snap-type:x proximity; padding:2px 1px 10px;
+    -webkit-overflow-scrolling:touch; }
+  .top-five-grid .product-card { scroll-snap-align:start; }
+  .top-five-grid .loading-message, .top-five-grid .empty-products {
+    grid-column:auto; width:230px; }
+  .top-five-grid .product-card-image { height:165px; }
+  .top-five-grid .product-info h3 { font-size:11px; }
+
+  /* Catalogo: dos tarjetas completas por fila */
+  .offers-section, .catalog-section { width:100%; padding:18px 9px; }
+  .catalog-grid { display:grid; grid-template-columns:repeat(2,minmax(0,1fr));
+    gap:10px; width:100%; }
+  .product-card { box-sizing:border-box; width:100%; max-width:100%; min-width:0; height:auto; }
+  .product-card-image { width:100%; height:clamp(160px,47vw,230px); min-width:0; }
+  .product-card-image img { width:100%; height:100%; max-width:100%; object-fit:contain; }
+  .product-info { min-width:0; padding:9px 6px; }
+  .product-info h3, .product-name, .product-brand, .product-category {
+    white-space:normal; overflow-wrap:break-word; word-break:normal;
+    line-height:1.35; }
+  .product-info h3 { font-size:11px; }
+  .product-buy-button { width:100%; min-height:35px; font-size:10px; }
+  .section-title-row { min-width:0; }
+  .section-title-row h2 { font-size:clamp(24px,7vw,30px); }
+  .catalog-heading { display:flex; flex-direction:column; align-items:stretch; gap:0; }
+  .catalog-button { align-self:flex-end; margin:0 0 11px; }
+  .catalog-toolbar { display:grid; grid-template-columns:repeat(2,minmax(0,1fr));
+    width:100%; gap:8px; }
+  .catalog-toolbar select { box-sizing:border-box; display:block;
+    width:100%; max-width:100%; min-width:0; padding:10px 5px; font-size:11px; }
+  .catalog-toolbar select:last-child { grid-column:1/-1; }
+  .whatsapp-float { right:10px; bottom:12px; max-width:112px; }
+  .whatsapp-icon { width:50px; height:50px; }
+  .whatsapp-label { font-size:9px; padding:6px; }
+}
