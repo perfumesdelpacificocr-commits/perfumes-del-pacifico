@@ -274,3 +274,238 @@ section{min-width:0;}
   .hero-product img{max-height:210px;}
 }
 @media(max-width:380px){.brand-symbol{width:45px;height:46px;}}
+
+
+/* ==============================================================
+   PERFUMES DEL PACÍFICO — PORTADA CINEMATOGRÁFICA
+   Pegar al FINAL de styles.css. Conserva el catálogo y Supabase.
+   ============================================================= */
+
+/* Fondo negro con brillos azul petróleo y oro. */
+.hero {
+  position: relative;
+  isolation: isolate;
+  height: clamp(350px, 27vw, 440px);
+  min-height: 350px;
+  overflow: hidden;
+  background: #020406;
+  border-bottom: 1px solid #d6b16d;
+  box-shadow: inset 0 -10px 22px #0009;
+}
+.hero-background {
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  pointer-events: none;
+  background:
+    radial-gradient(ellipse 33% 85% at 100% 40%, rgba(0,134,198,.26), transparent 78%),
+    radial-gradient(ellipse 45% 60% at 2% 69%, rgba(0,156,205,.24), transparent 77%),
+    radial-gradient(ellipse 52% 90% at 73% 45%, rgba(35,58,77,.33), transparent 80%),
+    linear-gradient(100deg, #020202 0%, #020507 52%, #040506 100%);
+}
+/* Cintas luminosas curvas, sin usar imágenes adicionales. */
+.hero-background::before,
+.hero-background::after {
+  content: "";
+  position: absolute;
+  pointer-events: none;
+  inset: auto;
+  opacity: 1;
+}
+.hero-background::before {
+  width: 94%;
+  height: 72%;
+  left: -37%;
+  top: 11%;
+  border-radius: 50%;
+  border-top: clamp(5px,1.05vw,17px) solid rgba(247,208,138,.78);
+  border-bottom: clamp(9px,2.1vw,33px) solid rgba(0,151,209,.68);
+  transform: rotate(17deg);
+  box-shadow: 0 -11px 20px rgba(224,160,76,.1), 0 16px 28px rgba(0,131,204,.21);
+  filter: drop-shadow(0 0 7px rgba(4,140,197,.46));
+}
+.hero-background::after {
+  width: 95%;
+  height: 83%;
+  right: -48%;
+  bottom: -18%;
+  border-radius: 50%;
+  border-top: clamp(8px,1.65vw,25px) solid rgba(8,150,208,.75);
+  border-bottom: clamp(5px,1.05vw,16px) solid rgba(248,202,123,.9);
+  transform: rotate(-17deg);
+  box-shadow: 0 13px 22px rgba(217,160,64,.15);
+  filter: drop-shadow(0 0 9px rgba(0,144,222,.45));
+}
+.hero-content {
+  position: relative;
+  z-index: 1;
+  display: grid;
+  grid-template-columns: 47% 53%;
+  align-items: center;
+  height: 100%;
+  min-height: 0;
+  padding: 0 3.8%;
+}
+.hero-copy {
+  position: relative;
+  z-index: 6;
+  padding: 0 2% 0 0;
+  text-align: center;
+}
+.hero-copy h1 {
+  font-family: 'Cormorant Garamond',Georgia,serif;
+  font-size: clamp(48px,5.55vw,92px);
+  font-weight: 500;
+  line-height: .82;
+  letter-spacing: .02em;
+  color: #f4d4a0;
+  text-shadow: 0 2px 3px #000, 0 0 22px rgba(235,183,101,.13);
+}
+.hero-slogan {
+  font-family: 'Great Vibes',cursive;
+  font-size: clamp(29px,3.3vw,52px);
+  line-height: 1.15;
+  margin-top: 16px;
+  color: #fffaf6;
+  text-shadow: 0 3px 8px #000;
+}
+.hero-button {
+  margin-top: 15px;
+  min-width: 220px;
+  padding: 11px 24px;
+  background: rgba(0,0,0,.55);
+  border-color: #edc789;
+  box-shadow: 0 0 12px rgba(201,153,66,.12);
+}
+/* Humo detrás de las botellas y neblina sobre la superficie. */
+.hero-products {
+  position: relative;
+  isolation: isolate;
+  display: flex;
+  justify-content: space-around;
+  align-items: flex-end;
+  gap: 0;
+  height: 100%;
+  padding: 12px 0 22px;
+  min-width: 0;
+}
+.hero-products::before {
+  content: "";
+  position: absolute;
+  z-index: -1;
+  pointer-events: none;
+  inset: 4% -8% 2% -9%;
+  background:
+    radial-gradient(ellipse 13% 40% at 14% 65%, rgba(239,247,255,.43), transparent 100%),
+    radial-gradient(ellipse 17% 48% at 29% 29%, rgba(210,226,245,.35), transparent 100%),
+    radial-gradient(ellipse 17% 40% at 47% 71%, rgba(247,249,253,.44), transparent 100%),
+    radial-gradient(ellipse 18% 42% at 65% 29%, rgba(203,219,239,.47), transparent 100%),
+    radial-gradient(ellipse 15% 45% at 85% 65%, rgba(248,250,255,.48), transparent 100%),
+    radial-gradient(ellipse 16% 32% at 97% 22%, rgba(205,227,247,.31), transparent 100%),
+    radial-gradient(ellipse 75% 17% at 50% 96%, rgba(240,245,253,.52), transparent 92%);
+  filter: blur(12px);
+  opacity: .95;
+}
+.hero-products::after {
+  content: "";
+  position: absolute;
+  z-index: 4;
+  bottom: 3px;
+  left: -9%;
+  right: -6%;
+  height: 35px;
+  pointer-events: none;
+  background:
+    linear-gradient(to bottom, transparent, rgba(212,230,244,.14) 45%, rgba(0,0,0,.18)),
+    radial-gradient(ellipse at center, rgba(247,239,226,.39), transparent 75%);
+  filter: blur(7px);
+  opacity: .8;
+}
+.hero-products .hero-product {
+  position: relative;
+  z-index: 2;
+  width: 32%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: flex-end;
+  overflow: visible;
+}
+.hero-products .hero-product::before {
+  content: "";
+  position: absolute;
+  z-index: -1;
+  left: 7%;
+  right: 7%;
+  top: 8%;
+  bottom: 13%;
+  pointer-events: none;
+  background:
+    radial-gradient(ellipse at 18% 34%, rgba(243,247,255,.35), transparent 35%),
+    radial-gradient(ellipse at 75% 65%, rgba(226,238,255,.34), transparent 43%),
+    radial-gradient(ellipse at 50% 86%, rgba(222,232,242,.38), transparent 47%);
+  filter: blur(10px);
+}
+.hero-products .hero-product::after {
+  content: "";
+  z-index: -1;
+  position: absolute;
+  bottom: -15px;
+  left: 10%;
+  width: 80%;
+  height: 23px;
+  border-radius: 50%;
+  background: radial-gradient(ellipse at center, rgba(220,227,233,.5),rgba(11,16,23,.55) 57%,transparent 76%);
+  filter: blur(7px);
+}
+.hero-products .hero-product img,
+.hero-products .hero-valentino img {
+  z-index: 2;
+  position: relative;
+  display: block;
+  width: 100%;
+  height: 100%;
+  max-height: none;
+  padding: 0;
+  margin: 0;
+  background: transparent;
+  object-fit: contain;
+  object-position: center bottom;
+  mix-blend-mode: normal;
+  border: 0;
+  border-radius: 0;
+  filter: drop-shadow(0 12px 9px rgba(0,0,0,.75));
+}
+/* Adaptar la portada sin afectar categorías, tarjetas, ni el carrito. */
+@media (max-width: 1000px) and (min-width: 761px) {
+  .hero {height: 335px; min-height: 335px;}
+  .hero-content {grid-template-columns: 46% 54%; padding:0 2%;}
+  .hero-copy h1 {font-size:clamp(40px,5.5vw,60px);}
+  .hero-products {padding-bottom:20px;}
+}
+@media (max-width:760px) {
+  .hero {height:auto; min-height: 530px;}
+  .hero-content {
+    display:flex;
+    flex-direction:column;
+    justify-content:center;
+    min-height:530px;
+    height:auto;
+    padding:31px 13px 18px;
+  }
+  .hero-copy {width:100%; padding:0;}
+  .hero-copy h1 {font-size:clamp(43px,11vw,62px);line-height:.86;}
+  .hero-slogan {font-size:clamp(28px,8vw,39px);margin-top:11px;}
+  .hero-button {min-width:180px;margin-top:12px;padding:9px 15px;}
+  .hero-products {width:100%;height:250px; margin-top:18px; padding:4px 0 17px;}
+  .hero-products .hero-product {width:33.333%;}
+  .hero-products .hero-product img {height:100%;max-height:none;}
+  .hero-background::before {left:-75%;width:145%;height:54%;top:10%;}
+  .hero-background::after {right:-79%;width:135%;height:49%;bottom:-4%;}
+}
+@media (max-width:380px) {
+  .hero {min-height:470px;}
+  .hero-content {min-height:470px;padding-top:27px;}
+  .hero-copy h1 {font-size:clamp(37px,10.5vw,44px);}
+  .hero-products {height:205px;margin-top:15px;}
+}
