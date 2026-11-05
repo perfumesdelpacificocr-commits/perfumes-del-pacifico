@@ -1,3 +1,244 @@
+
+ok Perfecto, el style estamos listo. Ahora ocupamos hacer las demás cosas. Quiero que cuando uno entre a un producto le aparezca como una tarjeta de visualización del producto y pueda desplazarse hacia los lados, hacia los demás productos. Aparte quiero que cuando se agreguen las cosas al carrito aparezca una notificación que diga agregaste tantos productos al carrito, ya puedes verlo en nuestro carrito, y que cuando uno se meta al carrito lo redirija a WhatsApp directamente con un mensaje que diga: Hola buenas, me gustaría realizar un pedido de estos productos, que diga el monto y que diga el total del monto también. Que a lo último también diga una frase como deseos envío. y... pero invéntelo usted, ¿verdad? hágalo bien hecho, por favor quiero que hacer eso. No sé si eso influirá en el styles y sin ver qué códigos hay que modificar para que ocupamos eso.
+¡Perfecto! Ahora vamos a trabajar en las funciones de Perfumes del Pacífico, para que la página no solo se vea elegante, sino que también funcione como una tienda profesional.
+
+La buena noticia es que no necesitamos rehacer el styles.css. Podemos conservar el diseño y agregar unos pequeños ajustes visuales.
+
+1. Visualización de productos con desplazamiento
+Quiero que cuando un cliente presione cualquier perfume se abra una ventana grande, elegante, con la fotografía, el nombre, la marca, el precio y el botón de agregar al carrito.
+
+Ejemplo de visualización
+
+Lattafa Yara EDP 100 ml - Perfume para Mujer
+LATTAFA
+
+Yara
+Eau de Parfum
+
+Precio del catálogo
+
+Agregar al carrito
+
+Anterior
+
+Deslizar para explorar
+
+Siguiente
+
+Ejemplo visual; no corresponde a un producto o precio confirmado de tu inventario.
+Podrás desplazarte usando las flechas en computadora o deslizando el dedo en celular, sin cerrar la ventana. Los productos mostrados serán los reales de Supabase.
+
+2. Notificación al agregar al carrito
+Cada vez que el cliente agregue un perfume, aparecerá una notificación elegante.
+
+¡Producto agregado correctamente!
+
+Has agregado 2 productos. Ya puedes verlos en nuestro carrito y finalizar tu pedido.
+
+ Ver carrito
+
+La notificación se actualizará según la cantidad real de unidades y permitirá acceder al carrito.
+
+3. Carrito con pedido directo por WhatsApp
+El cliente podrá revisar sus productos, modificar cantidades y ver el total. Al presionar Finalizar pedido por WhatsApp, se abrirá WhatsApp con un mensaje generado automáticamente.
+
+Mensaje de pedido
+
+Hola, buenas. 👋
+
+Me gustaría realizar un pedido de los siguientes productos de Perfumes del Pacífico:
+
+🛍️ Mi pedido:
+• Perfume A — 2 unidades × ₡15.000 = ₡30.000
+• Perfume B — 1 unidad × ₡22.000 = ₡22.000
+
+💰 Total del pedido: ₡52.000
+
+🚚 Deseo coordinar el envío de mi pedido.
+
+¿Podrían confirmarme la disponibilidad, el costo de envío y el tiempo estimado de entrega?
+
+¡Muchas gracias!
+
+Los nombres y precios son ilustrativos. El mensaje real usará los productos, cantidades y precios del carrito.
+4. ¿Qué códigos debemos modificar?
+Archivo
+
+Trabajo
+
+script.js
+
+Visualizador, navegación, notificaciones, carrito y mensaje de WhatsApp
+
+styles.css
+
+Pequeños ajustes para las ventanas, flechas y notificaciones
+
+index.html
+
+Ajustes mínimos si son necesarios para los nuevos controles
+
+config.js
+
+No debería necesitar cambios
+
+Supabase
+
+Conservamos los productos y precios existentes
+
+Solo falta que me envíes script.js
+Ya tengo tu index.html y el diseño CSS.
+
+Envíame ahora el archivo script.js completo. Es el más importante porque controla los productos y el carrito. Necesito revisarlo para integrar todas estas funciones sin duplicar eventos, perder productos o romper lo que ya funciona.
+
+La idea es entregarte los archivos completos que debas reemplazar en GitHub, en orden y listos para copiar y pegar.
+
+
+Pasted text(7).txt
+Document
+User attachment
+quiero agregarle ese logo que sea idéntico en el style Sport.
+User attachment
+También junto con eso, entonces puedes agregar esos tres perfumes que están en la parte de arriba: el agua de Chio, el Valentino, Intense y el Gisty el Porfa. quiero que esas tres cosas se vean ahí arriba. En la página, si puedes ver, a la parte de perfumes del pacífico hay un espacio vacío. Pues quiero poner esos tres perfumes y el logo. Son las nuevas cosas que quiero agregar a el site. Por favor, hacalo bien.
+Ya integré las nuevas funciones de Perfumes del Pacífico, incluyendo lo que acabas de pedir para el logo y los tres perfumes de la portada.
+
+Los cambios incluyen:
+
+Visualizador de perfumes: al seleccionar un producto, se abre una tarjeta grande con fotografía, nombre, precio y botón de compra.
+
+Desplazamiento entre productos: flechas en computadora y deslizamiento con el dedo en celular.
+
+Notificación al agregar: muestra cuántas unidades hay en el carrito y permite abrirlo.
+
+Carrito: puedes aumentar, disminuir o eliminar productos.
+
+Pedido por WhatsApp: genera un mensaje con productos, cantidades, precios individuales, subtotales, total y solicitud de envío.
+
+Portada: preparé los espacios con fotografías de Acqua di Giò, Valentino Born in Roma Intense y YSL Libre.
+
+Sobre el logo: preparé el código para utilizar una imagen llamada logo-pacifico.png. Para que sea exactamente el de tu referencia, necesitamos ese archivo original; reproducirlo únicamente con CSS no garantiza que sea idéntico.
+
+Archivos listos para GitHub
+Descarga todo junto
+
+ Descargar actualización completa ZIP
+
+O descarga cada archivo por separado:
+
+1. index.html
+
+Descargar
+
+2. styles.css
+
+Descargar
+
+3. script.js
+
+Descargar
+
+Cómo instalarlos
+Abre tu repositorio en GitHub.
+
+Reemplaza esos tres archivos por las nuevas versiones.
+
+Conserva config.js y tu configuración de Supabase.
+
+Guarda los cambios y verifica la página en computadora y celular.
+
+Dos detalles pendientes: debes subir tu logo original como logo-pacifico.png a la misma carpeta de index.html. Las tres fotografías de portada usan enlaces externos provisionales, así que conviene sustituirlos por imágenes propias o autorizadas para evitar que dejen de mostrarse.
+
+El JavaScript pasó la comprobación de sintaxis y el paquete está completo. Todavía no he podido verificar la tienda funcionando contra tu Supabase ni confirmar el resultado visual en GitHub Pages.
+
+También podemos crear un fondo de portada exclusivo, negro con ondas azules y doradas, que acompañe los tres perfumes sin alterar el logo.
+
+
+index.html
+HTML
+
+styles.css
+Code
+
+script.js
+Code
+El index no es un código y el script tampoco lo abre, solo está ahí. ¿Qué pasó?
+
+Worked for 23s
+¡Ya encontré el problema! Disculpa, te los envié como archivos descargables, pero no como códigos fáciles de abrir y copiar.
+
+Ya lo corregí. Ahora tienes los códigos completos en dos formatos.
+
+Opción 1: Abrir y copiar los códigos
+ Ver código completo de index.html
+
+ Ver código completo de script.js
+
+ Ver código completo de styles.css
+
+Abre cualquiera de los archivos .txt, copia todo su contenido y pégalo en el archivo correspondiente de GitHub.
+
+Opción 2: Descargar todo junto
+Perfumes del Pacífico — Paquete completo
+
+Incluye index.html, script.js, styles.css y tu logo original convertido a logo-pacifico.png.
+
+ Descargar los 4 archivos ZIP
+
+Importante: no cambies los nombres de los archivos cuando los subas a GitHub. Los cuatro deben quedar en la carpeta principal de tu página.
+
+Conserva tu config.js actual, porque contiene la configuración de Supabase.
+
+Ahora sí están preparados como archivos de código reales, y también tienes las versiones .txt para copiarlos directamente.
+
+
+CODIGO-index.txt
+Document
+
+CODIGO-script.txt
+Document
+
+CODIGO-styles.txt
+Document
+Lo que no entendí, lo que no entendí fue eso del logo. ¿Dónde lo tengo que poner?
+El logo que me enviaste, el de la P dorada con ondas azules, debes ponerlo en GitHub, en la misma carpeta donde están los códigos de tu página.
+
+Te explico cómo hacerlo.
+
+1. Entra a tu repositorio de GitHub
+En la carpeta principal deben quedar estos archivos:
+
+Perfumes del Pacífico
+
+index.html
+
+styles.css
+
+script.js
+
+config.js
+
+logo-pacifico.png ← Aquí va el logo
+
+2. Sube el logo
+Abre tu repositorio.
+
+Presiona Add file → Upload files.
+
+Selecciona la imagen del logo, guardada con el nombre exacto logo-pacifico.png.
+
+Presiona Commit changes.
+
+3. ¿Dónde aparecerá?
+El logo aparecerá en la esquina superior izquierda de la página, donde actualmente tienes la letra P.
+
+Importante: subir la imagen no basta si el index.html todavía muestra <span class="brand-symbol">P</span>. Debe tener una etiqueta de imagen, así:
+
+<img src="logo-pacifico.png" alt="Perfumes del Pacífico" class="brand-logo">
+
+Y el CSS debe darle el tamaño correcto.
+
+No tienes que subir el logo a Supabase. Va directamente en GitHub, junto con los archivos de la página.
+
 /* PERFUMES DEL PACÍFICO — diseño de referencia, noviembre 2026
    Compatible con el index.html actual. No modifica la lógica de Supabase. */
 @import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=Great+Vibes&family=Montserrat:wght@400;500;600;700&display=swap');
@@ -94,3 +335,158 @@ section{min-width:0;}
   background:#f4f0e9;
 }
 .product-card .product-image img,
+.product-card .product-image-container img,
+.product-card .product-photo img{
+  display:block;width:100%;height:100%;min-width:0;min-height:0;
+  max-width:100%;max-height:100%;margin:0;padding:2px;
+  object-fit:contain;object-position:center center;
+  mix-blend-mode:normal;filter:none;
+  transform:scale(1.09);transform-origin:center;
+}
+.product-card .product-image img:hover,
+.product-card .product-image-container img:hover,
+.product-card .product-photo img:hover{transform:scale(1.13);}
+.product-card .product-info{min-width:0;min-height:0;padding:10px 7px 8px;overflow-wrap:anywhere;}
+.product-card .product-info h3{display:-webkit-box;-webkit-box-orient:vertical;-webkit-line-clamp:2;line-clamp:2;overflow:hidden;line-height:1.4;}
+.product-card .product-actions{margin-top:auto;}
+.product-card .product-price{font-size:14px;}
+
+/* TOP 5: cinco tarjetas por lado en PC, desplazamiento en celular. */
+.top-five-grid .product-image,
+.top-five-grid .product-image-container,
+.top-five-grid .product-photo{height:128px;}
+.top-five-grid .product-info h3{font-size:10px;}
+.top-five-grid .product-price{font-size:11px;}
+.top-five-grid .product-actions button{min-height:28px;}
+
+/* Catálogo: botellas grandes, sin bloques negros desproporcionados. */
+.catalog-grid{align-items:stretch;}
+.catalog-grid .product-card{min-height:0;}
+.catalog-grid .product-image,
+.catalog-grid .product-image-container,
+.catalog-grid .product-photo{height:230px;}
+.catalog-grid .product-info h3{font-size:13px;}
+.catalog-grid .product-price{font-size:15px;}
+.catalog-grid .product-actions button{min-height:34px;font-size:11px;}
+
+/* El aviso flotante no deja una barra vacía cuando no hay mensaje. */
+.toast-message:empty{display:none;}
+
+/* Los bloques sin productos muestran un texto legible, sin expandir
+   visualmente cada tarjeta. */
+.loading-message,.empty-catalog{grid-column:1 / -1;min-height:65px;}
+
+@media(max-width:1250px){
+  .catalog-grid{grid-template-columns:repeat(4,minmax(0,1fr));}
+}
+@media(max-width:1000px){
+  .top-five-grid .product-image,
+  .top-five-grid .product-image-container,
+  .top-five-grid .product-photo{height:115px;}
+  .catalog-grid .product-image,
+  .catalog-grid .product-image-container,
+  .catalog-grid .product-photo{height:195px;}
+}
+@media(max-width:760px){
+  .site-header{flex-wrap:nowrap;}
+  .brand{min-width:0;max-width:calc(100% - 120px);}
+  .brand-name{white-space:normal;}
+  .header-actions{flex-shrink:0;}
+  .hero-content{min-height:470px;}
+  .hero-products img{height:100%;}
+  .top-five-grid{display:grid;grid-auto-flow:column;grid-auto-columns:112px;
+    grid-template-columns:none;overflow-x:auto;overscroll-behavior-inline:contain;
+    scroll-snap-type:x proximity;}
+  .top-five-grid .product-card{scroll-snap-align:start;}
+  .top-five-grid .product-image,
+  .top-five-grid .product-image-container,
+  .top-five-grid .product-photo{height:137px;}
+  .catalog-grid{grid-template-columns:repeat(2,minmax(0,1fr));}
+  .catalog-grid .product-image,
+  .catalog-grid .product-image-container,
+  .catalog-grid .product-photo{height:clamp(175px,53vw,245px);}
+  .catalog-grid .product-info{padding:9px 6px;}
+  .catalog-grid .product-info h3{font-size:12px;}
+  .whatsapp-float{z-index:950;}
+}
+@media(max-width:380px){
+  .brand{max-width:calc(100% - 108px);}
+  .catalog-grid .product-image,
+  .catalog-grid .product-image-container,
+  .catalog-grid .product-photo{height:165px;}
+}
+
+/* Respeto al ajuste de movimiento reducido del dispositivo. */
+@media(prefers-reduced-motion:reduce){
+  html{scroll-behavior:auto;}
+  .product-card,.product-card img,.hero-button{transition:none;}
+}
+
+/* ==========================================================
+   COMPLEMENTOS — logo, fotos de portada, modal, carrito, avisos
+   Compatible con index.html y script.js entregados en conjunto.
+   ========================================================== */
+.brand-symbol { overflow:visible; font-size:0; }
+.brand-symbol img { width:100%; height:100%; object-fit:contain; filter:drop-shadow(0 0 6px #d9b56840); }
+.brand-symbol img[hidden] { display:none!important; }
+.brand-fallback { font:700 64px/1 var(--font-title);color:var(--gold-light); }
+.hero-product img {mix-blend-mode:multiply; border-radius:6px;}
+.hero-products { position:relative; }
+.hero-products::before {content:'';position:absolute;inset:12% 0 10%;background:radial-gradient(ellipse at center,#0b40564d,transparent 70%);pointer-events:none;}
+.product-card-image { position:relative;display:flex;justify-content:center;align-items:center;width:100%;height:215px;border:0;background:#f4f2ee;overflow:hidden;padding:0;cursor:zoom-in; }
+.product-card-image img.product-image {display:block;width:100%;height:100%;max-width:none;object-fit:contain;object-position:center;}
+.product-card-image .product-badge {top:6px;left:6px;}
+.product-image-placeholder {display:flex;align-items:center;justify-content:center;width:100%;height:100%;padding:12px;text-align:center;color:#6e624f;font-size:11px;}
+.product-card .product-info {min-height:0;padding:11px 9px;display:flex;flex-direction:column;gap:5px;}
+.product-card .product-info h3 {font-size:13px;line-height:1.4;min-height:36px;}
+.product-category,.product-brand {color:#bfb7a8;font-size:10px;}
+.product-prices {display:flex;flex-wrap:wrap;align-items:center;justify-content:center;gap:7px;margin:5px 0;}
+.product-buy-button,.viewer-buy {width:100%;padding:10px 7px;border:1px solid var(--gold);border-radius:7px;background:linear-gradient(125deg,#e6c87d,#ad7f38);color:#13100a;font-size:11px;font-weight:700;cursor:pointer;}
+.product-buy-button:hover,.viewer-buy:hover {filter:brightness(1.12);}
+.product-buy-button:disabled,.viewer-buy:disabled {opacity:.6;cursor:not-allowed;}
+.top-five-grid .product-card-image {height:148px;}
+.top-five-grid .product-info h3 {font-size:10px;min-height:26px;}
+.top-five-grid .product-buy-button {font-size:9px;padding:7px 2px;}
+.cart-panel[hidden],.search-panel[hidden],.toast-message[hidden] {display:none!important;}
+.cart-item {align-items:center;flex-wrap:wrap;gap:10px;}
+.cart-item-info {flex:1 1 130px;min-width:0;display:flex;flex-direction:column;gap:5px;}
+.cart-item-info strong {font-size:12px;overflow-wrap:anywhere;}
+.cart-item-info span {font-size:11px;color:var(--muted);}
+.cart-item-controls {display:flex;align-items:center;gap:9px;}
+.cart-item-controls button,.cart-item>button {width:28px;height:28px;background:#191919;color:var(--gold-light);border:1px solid var(--gold-dark);border-radius:5px;cursor:pointer;}
+.cart-empty {color:var(--muted);text-align:center;padding:24px 0;}
+.cart-footer a[aria-disabled="true"] {opacity:.6;}
+.product-dialog {width:min(840px,96vw);padding:20px;max-height:min(92dvh,850px);}
+#product-dialog-content {width:100%;}
+.viewer-layout {display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:22px;align-items:center;}
+.viewer-photo {display:flex;align-items:center;justify-content:center;min-height:300px;height:min(52vh,450px);border-radius:10px;background:#f5f2ed;overflow:hidden;}
+.viewer-photo img {width:100%;height:100%;object-fit:contain;}
+.viewer-info {padding:10px 5px;min-width:0;}
+.viewer-brand,.viewer-category {color:var(--gold);font-size:12px;letter-spacing:.1em;}
+.viewer-info h2 {font:600 clamp(26px,4vw,43px)/1.1 var(--font-title);margin:9px 0 12px;}
+.viewer-description {margin:14px 0;color:var(--muted);font-size:13px;line-height:1.65;max-height:130px;overflow-y:auto;}
+.viewer-price {font-weight:700;color:var(--gold-light);font-size:24px;margin:18px 0;}
+.viewer-navigation {display:flex;justify-content:space-between;align-items:center;gap:10px;margin-top:16px;padding-top:12px;border-top:1px solid var(--gold-dark);}
+.viewer-navigation button {border:1px solid var(--gold-dark);border-radius:7px;padding:9px 13px;background:#171717;color:var(--gold-light);cursor:pointer;font-size:12px;}
+.viewer-navigation span {font-size:11px;color:var(--muted);white-space:nowrap;}
+.toast-message {display:flex;align-items:center;gap:12px;justify-content:space-between;bottom:22px;width:max-content;min-width:280px;z-index:4000;background:#161a17;color:white;border:1px solid var(--gold);line-height:1.45;}
+.toast-message button {border:1px solid var(--gold);border-radius:6px;background:var(--gold);color:#101010;padding:8px;white-space:nowrap;font-weight:700;cursor:pointer;}
+@media(max-width:760px){
+  .brand-symbol {width:50px;height:54px;}
+  .brand-fallback {font-size:48px;}
+  .hero-product img {max-height:100%;}
+  .product-card-image {height:clamp(175px,49vw,260px);}
+  .top-five-grid .product-card-image {height:140px;}
+  .viewer-layout {grid-template-columns:1fr;gap:10px;}
+  .viewer-photo {min-height:0;height:min(36vh,295px);}
+  .viewer-info {padding:3px 2px;}
+  .viewer-info h2 {font-size:27px;margin:5px 0;}
+  .viewer-description {max-height:64px;margin:7px 0;}
+  .viewer-price {font-size:20px;margin:10px 0;}
+  .product-dialog {padding:12px;}
+  .viewer-navigation {margin-top:9px;}
+  .toast-message {width:calc(100% - 26px);bottom:12px;flex-wrap:wrap;font-size:12px;}
+}
+
+
+
