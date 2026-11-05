@@ -1,96 +1,101 @@
-/* PERFUMES DEL PACÍFICO — STYLES COMPLETO
-   Compatible con index.html de portada-franja.jpg y script.js actual.
-   Sin efectos de rayas adicionales ni elementos duplicados. */
-@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=Great+Vibes&family=Montserrat:wght@400;500;600;700&display=swap');
-:root{--black:#050607;--panel:#111111;--gold:#d9b568;--gold-light:#ffe2a0;--gold-dark:#876a37;--blue:#168db0;--white:#f7f4ed;--muted:#bfb8ae;--border:rgba(217,181,104,.48);--title:'Cormorant Garamond',Georgia,serif;--body:'Montserrat',Arial,sans-serif;--script:'Great Vibes',cursive}
-*,*::before,*::after{box-sizing:border-box}
-html{scroll-behavior:smooth;scroll-padding-top:85px}
-body{margin:0;min-width:320px;min-height:100vh;background:var(--black);color:var(--white);font-family:var(--body);overflow-x:hidden}
-button,input,select{font:inherit}button{cursor:pointer}a{text-decoration:none;color:inherit}img{display:block;max-width:100%}[hidden]{display:none!important}
-:focus-visible{outline:2px solid var(--gold-light);outline-offset:3px}
+    margin-left:0; margin-right:0;
+  }
+  .site-header { position:sticky; top:0; z-index:1000; min-height:65px;
+    display:flex; flex-wrap:nowrap; align-items:center; gap:7px;
+    padding:6px 10px; }
+  .brand { flex:1 1 auto; min-width:0; max-width:calc(100% - 115px); gap:6px; }
+  .brand-symbol { flex:0 0 43px; width:43px; height:46px; }
+  .brand-symbol img { max-width:100%; max-height:100%; object-fit:contain; }
+  .brand-name { min-width:0; font-size:clamp(15px,4.6vw,21px); letter-spacing:1px; }
+  .brand-name small { font-size:clamp(7px,2.2vw,10px); letter-spacing:1px; }
+  .header-actions { display:flex; flex:0 0 auto; gap:7px; }
+  .icon-button, .mobile-menu-button { display:grid; place-items:center;
+    min-width:27px; min-height:36px; padding:2px; font-size:23px; }
+  .header-divider { display:none; }
+  .main-nav { display:none; position:absolute; top:100%; left:0; right:0;
+    width:100%; flex-direction:column; align-items:stretch;
+    padding:10px; gap:3px; background:#090909; border-bottom:1px solid #876a37; }
+  .main-nav.mobile-open, .main-nav.is-open { display:flex; }
+  .nav-link { font-size:13px; padding:11px; }
+  .mobile-menu-button { display:grid; }
+  .site-icon { width:19px; height:19px; }
 
-/* CABECERA Y LOGO ORIGINAL */
-.site-header{position:sticky;top:0;z-index:1000;display:flex;align-items:center;justify-content:space-between;gap:14px;min-height:77px;padding:7px 3%;background:linear-gradient(100deg,#030303,#05080a 72%,#06121b);border-bottom:1px solid var(--gold-dark);box-shadow:0 3px 18px #0008}
-.brand{display:flex;align-items:center;gap:10px;flex-shrink:0;min-width:0}
-.brand-symbol{display:flex;align-items:center;justify-content:center;width:74px;height:62px;flex-shrink:0;color:var(--gold-light);font:700 54px var(--title)}
-.brand-symbol::after{display:none}
-.brand-symbol img{width:100%;height:100%;object-fit:contain;filter:drop-shadow(0 0 4px #b5915b33)}
-.brand-symbol .brand-fallback{font-size:48px}
-.brand-name{display:flex;flex-direction:column;white-space:nowrap;color:var(--gold-light);font:500 26px/1 var(--title);letter-spacing:3px}
-.brand-name small{margin-top:6px;color:#37afd1;font:600 11px/1.2 var(--body);letter-spacing:3px}
-.main-nav{display:flex;align-items:center;justify-content:center;gap:3px}
-.nav-link{display:flex;align-items:center;gap:6px;padding:11px 10px;border-radius:12px;font-size:11px;white-space:nowrap;transition:background .2s,color .2s}
-.nav-link span{color:var(--gold-light);font-size:19px}
-.nav-link:hover,.nav-link.active{color:#090909;background:linear-gradient(120deg,#ffe2a0,#c79c50)}
-.nav-link:hover span,.nav-link.active span{color:#090909}
-.header-actions{display:flex;align-items:center;gap:12px;flex-shrink:0}
-.icon-button,.mobile-menu-button{position:relative;border:0;background:transparent;color:#fff;font-size:27px;padding:4px}
-.icon-button:hover,.mobile-menu-button:hover{color:var(--gold-light)}
-.header-divider{height:26px;width:1px;background:var(--gold-dark)}
-.cart-count{position:absolute;top:-5px;right:-6px;display:grid;place-items:center;min-width:19px;height:19px;padding:0 4px;border-radius:50%;background:var(--gold);color:#070707;font-size:10px;font-weight:700}
-.mobile-menu-button{display:none}
-.search-panel{padding:14px 4%;border-bottom:1px solid var(--gold-dark);background:#101010}
-.search-panel form{max-width:850px;margin:auto;display:flex;gap:8px}
-.search-panel input{flex:1;min-width:0;padding:12px;color:#fff;background:#070707;border:1px solid var(--gold-dark);border-radius:7px}
-.search-panel button{padding:10px 15px;border:1px solid var(--gold-dark);border-radius:7px;background:var(--gold);color:#121212}
+  /* Portada: mostrar los elementos adaptados al movil */
+  .hero { width:100%; height:auto; min-height:0; aspect-ratio:auto; overflow:hidden; }
+  .hero-reference-art, .hero-reference-action { display:none; }
+  .hero-background { display:block; position:absolute; inset:0; z-index:0;
+    background:radial-gradient(ellipse at 72% 65%,#16425b88,transparent 65%),#030609; }
+  .hero-content { position:relative; z-index:1; display:flex;
+    flex-direction:column; align-items:center; width:100%; height:auto;
+    padding:21px 12px 14px; }
+  .hero-copy { width:100%; min-width:0; text-align:center; }
+  .hero-copy h1 { margin:0; font-size:clamp(37px,9.6vw,54px); line-height:.92; }
+  .hero-slogan { font-size:clamp(25px,7vw,35px); margin:10px 0 0; }
+  .hero-button { display:inline-flex; margin-top:12px; padding:10px 18px; }
+  .hero-products { position:relative; display:flex; align-items:flex-end;
+    justify-content:center; width:100%; height:clamp(175px,58vw,260px);
+    gap:3px; margin-top:13px; padding:0; }
+  .hero-products::before { content:''; position:absolute; inset:8% 0 2%; z-index:0;
+    background:radial-gradient(ellipse at 27% 62%,#e7f3ff70,transparent 38%),
+               radial-gradient(ellipse at 65% 46%,#d6e6f377,transparent 46%);
+    filter:blur(13px); pointer-events:none; }
+  .hero-product { position:relative; z-index:1; display:flex; align-items:flex-end;
+    justify-content:center; width:33.333%; min-width:0; height:100%; }
+  .hero-product img { width:100%; height:100%; max-width:100%; max-height:100%;
+    object-fit:contain; object-position:center bottom; }
 
-/* PORTADA — EN COMPUTADORA SOLO SE MUESTRA LA IMAGEN COMPLETA */
-.hero{position:relative;width:100%;aspect-ratio:1774/578;min-height:0;overflow:hidden;background:#030609;border-bottom:1px solid var(--gold-dark)}
-.hero-reference-art{position:absolute;inset:0;display:block;width:100%;height:100%;object-fit:fill;z-index:1}
-.hero-reference-action{position:absolute;z-index:3;display:block;left:12%;top:68%;width:21%;height:15%;border-radius:40px;cursor:pointer}
-.hero-background,.hero-content{display:none}
-/* Texto, humo, ondas y perfumes ya están dentro de portada-franja.jpg. */
+  /* Categorias ordenadas: tres por fila */
+  .categories { display:grid; grid-template-columns:repeat(3,minmax(0,1fr));
+    gap:0; padding:8px 5px; }
+  .category-item { min-width:0; min-height:75px; display:flex; flex-direction:column;
+    align-items:center; justify-content:center; gap:5px; padding:8px 3px;
+    text-align:center; border-right:0; border-bottom:1px solid #d9b56833;
+    font-size:clamp(9px,2.5vw,12px); line-height:1.3; }
+  .category-icon { display:grid; place-items:center; height:30px; font-size:26px; }
+  .category-icon .site-icon { width:27px; height:27px; }
 
-/* CATEGORÍAS */
-.categories{display:grid;grid-template-columns:repeat(6,minmax(0,1fr));align-items:stretch;padding:8px 3%;background:#0a0a09;border-bottom:1px solid var(--gold-dark)}
-.category-item{min-width:0;min-height:67px;display:flex;align-items:center;justify-content:center;gap:10px;padding:8px;border-right:1px solid #d9b56833;font-size:12px;line-height:1.35;text-align:left}
-.category-item:last-child{border:0}.category-item:hover{color:var(--gold-light);background:#d9b5680e}
-.category-icon{font-size:29px;color:var(--gold-light)}
+  /* TOP 5: paneles apilados y tarjetas desplazables horizontalmente */
+  .bestsellers { display:grid; grid-template-columns:minmax(0,1fr); gap:12px;
+    padding:12px 9px 4px; }
+  .top-five-panel { width:100%; min-width:0; padding:9px; }
+  .section-heading { display:flex; align-items:center; justify-content:space-between;
+    min-width:0; gap:8px; }
+  .section-heading h2 { font-size:clamp(23px,7vw,29px); line-height:1.1; }
+  .section-heading a { font-size:11px; flex-shrink:0; }
+  .top-five-grid { display:grid; grid-template-columns:none;
+    grid-auto-flow:column; grid-auto-columns:minmax(130px,43%);
+    gap:9px; overflow-x:auto; overscroll-behavior-inline:contain;
+    scroll-snap-type:x proximity; padding:2px 1px 10px;
+    -webkit-overflow-scrolling:touch; }
+  .top-five-grid .product-card { scroll-snap-align:start; }
+  .top-five-grid .loading-message, .top-five-grid .empty-products {
+    grid-column:auto; width:230px; }
+  .top-five-grid .product-card-image { height:165px; }
+  .top-five-grid .product-info h3 { font-size:11px; }
 
-/* TÍTULOS Y SECCIONES */
-.bestsellers{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px;padding:12px 2% 5px}
-.top-five-panel{min-width:0;padding:10px;border:1px solid var(--border);border-radius:12px;background:linear-gradient(150deg,#111,#050505)}
-.section-heading{display:flex;align-items:center;justify-content:space-between;gap:8px;margin-bottom:10px}
-.section-heading h2,.section-title-row h2{margin:0;color:#fff;font:600 29px/1.1 var(--title)}
-.section-heading h2 span,.section-title-row h2 span{color:var(--gold-light)}
-.section-heading a{font-size:12px;color:var(--gold-light);white-space:nowrap}
-.offers-section,.catalog-section{padding:22px 2%}
-.section-title-row{display:flex;align-items:center;gap:13px;flex:1;min-width:0;margin-bottom:13px}
-.gold-line{flex:1;height:1px;background:linear-gradient(to right,var(--gold-dark),transparent)}
-.catalog-heading{display:flex;align-items:center;justify-content:space-between;gap:15px}
-.catalog-button{flex-shrink:0;padding:10px 17px;border:1px solid var(--gold);border-radius:25px;color:var(--gold-light);font-size:12px}
-.catalog-button:hover{background:var(--gold);color:#080808}
-.catalog-toolbar{display:flex;justify-content:flex-end;flex-wrap:wrap;gap:9px;margin:0 0 14px}
-.catalog-toolbar select{max-width:220px;min-width:0;padding:10px 12px;border:1px solid var(--gold-dark);border-radius:7px;background:#111;color:#fff;font-size:12px}
-
-/* TARJETAS DE LOS PRODUCTOS REALES DE SUPABASE */
-.product-grid{display:grid;align-items:stretch;min-width:0;gap:12px}
-.top-five-grid{grid-template-columns:repeat(5,minmax(0,1fr));gap:7px}
-.catalog-grid{grid-template-columns:repeat(5,minmax(0,1fr))}
-.product-card{display:flex;flex-direction:column;min-width:0;height:100%;overflow:hidden;border:1px solid #d9b56860;border-radius:10px;background:linear-gradient(160deg,#161616,#080808);transition:transform .2s,border-color .2s}
-.product-card:hover{transform:translateY(-3px);border-color:var(--gold-light)}
-.product-card-image{position:relative;display:flex;align-items:center;justify-content:center;width:100%;height:205px;padding:0;border:0;background:#f1eee9;overflow:hidden;cursor:zoom-in}
-.product-card-image img{width:100%;height:100%;object-fit:contain;object-position:center;background:transparent}
-.product-image-placeholder{display:grid;place-items:center;width:100%;height:100%;padding:12px;text-align:center;color:#5f5646;font-size:11px}
-.product-badge{position:absolute;z-index:2;top:7px;left:7px;padding:5px 7px;border-radius:4px;background:var(--gold);color:#17120a;font-size:10px;font-weight:700}
-.sold-badge{background:#555;color:#fff;left:auto;right:7px}
-.product-info{display:flex;flex:1;flex-direction:column;align-items:center;gap:5px;padding:11px 9px 10px;text-align:center}
-.product-brand{margin:0;color:var(--muted);font-size:10px;letter-spacing:.4px}
-.product-info h3{margin:0;font-size:12px;font-weight:600;line-height:1.4;overflow-wrap:anywhere}
-.product-category{margin:0;color:#b6ae9f;font-size:10px}
-.product-prices{display:flex;flex-wrap:wrap;align-items:center;justify-content:center;gap:5px;margin:5px 0 8px}
-.product-old-price{text-decoration:line-through;color:#aaa;font-size:11px}
-.product-price{color:var(--gold-light);font-size:14px}
-.product-buy-button{width:100%;min-height:34px;margin-top:auto;padding:8px 6px;border:1px solid var(--gold-dark);border-radius:6px;background:transparent;color:#fff;font-size:11px}
-.product-buy-button:hover:not(:disabled){color:#111;background:var(--gold)}
-.product-buy-button:disabled,.viewer-buy:disabled{opacity:.45;cursor:not-allowed}
-.top-five-grid .product-card-image{height:142px}
-.top-five-grid .product-info{padding:8px 5px}
-.top-five-grid .product-info h3{font-size:10px}
-.top-five-grid .product-price{font-size:11px}
-.top-five-grid .product-buy-button{font-size:9px;min-height:31px}
-.empty-products,.loading-message,.loading-products,.empty-catalog{grid-column:1/-1;margin:0;padding:28px 12px;color:var(--muted);text-align:center;font-size:13px}
-
-/* DETALLE DEL PRODUCTO Y NAVEGACIÓN LATERAL */
-.product-dialog{position:fixed;inset:0;box-sizing:border-box;width:min(850px,95vw);max-width:95vw;max-height:90vh;max-height:90dvh;margin:auto;padding:22px;overflow:auto;border:1px solid var(--gold);border-radius:15px;background:#0c0d0e;color:#fff;box-shadow:0 15px 60px #000b}
-.product-dialog::backdrop{background:#000c}
+  /* Catalogo: dos tarjetas completas por fila */
+  .offers-section, .catalog-section { width:100%; padding:18px 9px; }
+  .catalog-grid { display:grid; grid-template-columns:repeat(2,minmax(0,1fr));
+    gap:10px; width:100%; }
+  .product-card { box-sizing:border-box; width:100%; max-width:100%; min-width:0; height:auto; }
+  .product-card-image { width:100%; height:clamp(160px,47vw,230px); min-width:0; }
+  .product-card-image img { width:100%; height:100%; max-width:100%; object-fit:contain; }
+  .product-info { min-width:0; padding:9px 6px; }
+  .product-info h3, .product-name, .product-brand, .product-category {
+    white-space:normal; overflow-wrap:break-word; word-break:normal;
+    line-height:1.35; }
+  .product-info h3 { font-size:11px; }
+  .product-buy-button { width:100%; min-height:35px; font-size:10px; }
+  .section-title-row { min-width:0; }
+  .section-title-row h2 { font-size:clamp(24px,7vw,30px); }
+  .catalog-heading { display:flex; flex-direction:column; align-items:stretch; gap:0; }
+  .catalog-button { align-self:flex-end; margin:0 0 11px; }
+  .catalog-toolbar { display:grid; grid-template-columns:repeat(2,minmax(0,1fr));
+    width:100%; gap:8px; }
+  .catalog-toolbar select { box-sizing:border-box; display:block;
+    width:100%; max-width:100%; min-width:0; padding:10px 5px; font-size:11px; }
+  .catalog-toolbar select:last-child { grid-column:1/-1; }
+  .whatsapp-float { right:10px; bottom:12px; max-width:112px; }
+  .whatsapp-icon { width:50px; height:50px; }
+  .whatsapp-label { font-size:9px; padding:6px; }
+}
