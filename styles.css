@@ -1189,144 +1189,81 @@ img {
     height: 19px;
   }
 
-  /* PORTADA MÓVIL CON LA FOTO ORIGINAL */
-
+  /* PORTADA VERTICAL EXCLUSIVA PARA CELULAR.
+     La imagen ya contiene logo, título, frascos, botón y categorías.
+     La mostramos entera sin estirar ni recortar. */
   .hero {
     display: block;
+    position: relative;
     width: 100%;
     height: auto;
-    aspect-ratio: auto;
     min-height: 0;
-    overflow: hidden;
-    background: #030609;
+    aspect-ratio: 1086 / 1448;
+    overflow: visible;
+    border-bottom: 0;
+    background: #030609 url("portada-movil.jpg") center top / 100% 100% no-repeat;
   }
 
+  /* Evitar que se dibuje una segunda portada encima. */
   .hero-reference-art,
-  .hero-reference-action {
-    display: none !important;
-  }
-
-  .hero-background {
-    display: block;
-    position: absolute;
-    inset: 0;
-    z-index: 0;
-    background: radial-gradient(
-      ellipse at 70% 72%,
-      #14485b88,
-      transparent 64%
-    ), #030609;
-  }
-
+  .hero-background,
   .hero-content {
-    display: flex;
-    position: relative;
-    z-index: 1;
-    flex-direction: column;
-    align-items: center;
-    width: 100%;
-    min-width: 0;
-    height: auto;
-    padding: 22px 12px 16px;
-  }
-
-  .hero-copy {
-    width: 100%;
-    min-width: 0;
-    text-align: center;
-  }
-
-  .hero-copy h1 {
-    margin: 0;
-    color: var(--gold-light);
-    font: 500 clamp(34px,9vw,55px)/.96 var(--title);
-  }
-
-  .hero-slogan {
-    margin: 9px 0 0;
-    font: clamp(25px,7vw,36px)/1.15 var(--script);
-  }
-
-  .hero-button {
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-    gap: 9px;
-    margin-top: 13px;
-    padding: 10px 20px;
-    border: 1px solid var(--gold);
-    border-radius: 25px;
-    background: #0008;
-    font-size: 12px;
-  }
-
-  /* IMAGEN DE LOS TRES PERFUMES */
-
-  .hero-products {
-    position: relative;
-    display: block;
-    width: 100%;
-    min-width: 0;
-    height: clamp(190px,55vw,265px);
-    margin-top: 14px;
-    overflow: hidden;
-    border-radius: 8px;
-
-    background-image: url("portada-franja.jpg");
-    background-repeat: no-repeat;
-    background-size: 200% 100%;
-    background-position: right center;
-    background-color: #030609;
-  }
-
-  .hero-products::before,
-  .hero-products::after {
-    display: none;
-    content: none;
-  }
-
-  /* NO MOSTRAR LOS PNG INDIVIDUALES */
-
-  .hero-product,
-  .hero-product img {
     display: none !important;
   }
 
-  /* CATEGORÍAS */
+  /* Botón real y funcional sobre el botón dibujado en la foto. */
+  .hero-reference-action {
+    display: block !important;
+    position: absolute;
+    z-index: 4;
+    left: 24%;
+    top: 68.5%;
+    width: 52%;
+    height: 8.5%;
+    border-radius: 60px;
+    background: transparent;
+    cursor: pointer;
+  }
 
+  /* Las seis categorías están DIBUJADAS en la nueva portada.
+     Colocamos los enlaces auténticos exactamente sobre ellas:
+     no se duplican textos ni iconos y se pueden tocar. */
   .categories {
+    position: relative;
+    z-index: 5;
     display: grid;
-    grid-template-columns: repeat(3,minmax(0,1fr));
+    grid-template-columns: repeat(6, minmax(0, 1fr));
+    width: 100%;
+    height: 22vw;
+    min-height: 0;
+    margin-top: -27vw;
+    margin-bottom: 5vw;
+    padding: 0 2%;
     gap: 0;
-    padding: 7px 5px;
+    border: 0;
+    background: transparent;
   }
 
   .category-item {
     display: flex;
-    flex-direction: column;
-    align-items: center;
+    align-items: stretch;
     justify-content: center;
     min-width: 0;
-    min-height: 76px;
-    gap: 5px;
-    padding: 7px 2px;
-    text-align: center;
-    border-right: 0;
-    border-bottom: 1px solid #d9b5682b;
-    font-size: clamp(9px,2.55vw,12px);
-    line-height: 1.35;
+    min-height: 0;
+    height: 100%;
+    padding: 0;
+    border: 0;
+    background: transparent;
+    font-size: 0;
   }
 
-  .category-icon {
-    display: grid;
-    place-items: center;
-    min-height: 30px;
-    font-size: 26px;
+  .category-item:hover {
+    background: transparent;
   }
 
-  .category-icon .site-icon {
-    width: 27px;
-    height: 27px;
+  .category-item > * {
+    opacity: 0;
+    pointer-events: none;
   }
 
   /* TOP 5 */
