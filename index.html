@@ -24,14 +24,19 @@
 
 <body>
 
-  <!-- =================================
-       ENCABEZADO
-  ================================== -->
+  <!-- ENCABEZADO -->
 
   <header class="site-header" id="inicio">
 
     <a class="brand" href="#inicio" aria-label="Perfumes del Pacífico, inicio">
-      <span class="brand-symbol"><img src="logo-simbolo.png" alt="Logo Perfumes del Pacífico" onerror="this.hidden=true;this.nextElementSibling.hidden=false"><span class="brand-fallback" hidden>P</span></span>
+      <span class="brand-symbol">
+        <img
+          src="logo-simbolo.png"
+          alt="Logo Perfumes del Pacífico"
+          onerror="this.hidden=true;this.nextElementSibling.hidden=false"
+        >
+        <span class="brand-fallback" hidden>P</span>
+      </span>
 
       <span class="brand-name">
         <span>PERFUMES</span>
@@ -80,10 +85,7 @@
 
   </header>
 
-
-  <!-- =================================
-       BUSCADOR
-  ================================== -->
+  <!-- BUSCADOR -->
 
   <section class="search-panel" id="search-panel" hidden>
     <form id="search-form">
@@ -98,14 +100,30 @@
     </form>
   </section>
 
-
-  <!-- =================================
-       PORTADA PRINCIPAL
-  ================================== -->
-
   <main>
 
+    <!-- PORTADA PRINCIPAL -->
+
     <section class="hero" aria-label="Perfumes del Pacífico">
+
+      <!-- Portada completa para computadora -->
+
+      <img
+        class="hero-reference-art"
+        src="portada-franja.jpg"
+        alt="Perfumes del Pacífico con Acqua di Giò, Valentino Intense y YSL, humo azul y ondas doradas."
+        fetchpriority="high"
+      >
+
+      <!-- Enlace funcional sobre el botón de la imagen -->
+
+      <a
+        class="hero-reference-action"
+        href="#catalogo"
+        aria-label="Explorar catálogo"
+      ></a>
+
+      <!-- Portada adaptable para celular -->
 
       <div class="hero-background"></div>
 
@@ -127,25 +145,41 @@
         </div>
 
         <div class="hero-products">
+
           <div class="hero-product hero-acqua">
-            <img src="acqua-hero.png" alt="Acqua di Giò de Giorgio Armani" loading="eager" decoding="async">
+            <img
+              src="acqua-hero.png"
+              alt="Acqua di Giò de Giorgio Armani"
+              loading="eager"
+              decoding="async"
+            >
           </div>
+
           <div class="hero-product hero-valentino">
-            <img src="valentino-hero.png" alt="Valentino Donna Born in Roma Intense" loading="eager" decoding="async">
+            <img
+              src="valentino-hero.png"
+              alt="Valentino Donna Born in Roma Intense"
+              loading="eager"
+              decoding="async"
+            >
           </div>
+
           <div class="hero-product hero-ysl">
-            <img src="ysl-hero.png" alt="Yves Saint Laurent Y" loading="eager" decoding="async">
+            <img
+              src="ysl-hero.png"
+              alt="Yves Saint Laurent Y"
+              loading="eager"
+              decoding="async"
+            >
           </div>
+
         </div>
 
       </div>
 
     </section>
 
-
-    <!-- =================================
-         CATEGORÍAS
-    ================================== -->
+    <!-- CATEGORÍAS -->
 
     <section class="categories" aria-label="Categorías de perfumes">
 
@@ -181,10 +215,7 @@
 
     </section>
 
-
-    <!-- =================================
-         TOP 5
-    ================================== -->
+    <!-- TOP 5 MÁS VENDIDOS -->
 
     <section class="bestsellers" id="mas-vendidos">
 
@@ -203,7 +234,6 @@
 
       </div>
 
-
       <div class="top-five-panel">
 
         <div class="section-heading">
@@ -221,10 +251,7 @@
 
     </section>
 
-
-    <!-- =================================
-         OFERTAS
-    ================================== -->
+    <!-- OFERTAS ESPECIALES -->
 
     <section class="offers-section" id="ofertas">
 
@@ -239,10 +266,7 @@
 
     </section>
 
-
-    <!-- =================================
-         CATÁLOGO GENERAL
-    ================================== -->
+    <!-- CATÁLOGO GENERAL -->
 
     <section class="catalog-section" id="catalogo">
 
@@ -297,10 +321,7 @@
 
     </section>
 
-
-    <!-- =================================
-         CONTACTO
-    ================================== -->
+    <!-- CONTACTO -->
 
     <section class="contact-section" id="contacto">
 
@@ -331,12 +352,14 @@
 
   </main>
 
+  <!-- CARRITO DE COMPRAS -->
 
-  <!-- =================================
-       CARRITO
-  ================================== -->
-
-  <aside class="cart-panel" id="cart-panel" aria-label="Carrito de compras" hidden>
+  <aside
+    class="cart-panel"
+    id="cart-panel"
+    aria-label="Carrito de compras"
+    hidden
+  >
 
     <div class="cart-header">
       <h2>Tu carrito</h2>
@@ -362,14 +385,15 @@
 
   </aside>
 
-
-  <!-- =================================
-       DETALLE DEL PRODUCTO
-  ================================== -->
+  <!-- VISUALIZADOR DEL PRODUCTO -->
 
   <dialog class="product-dialog" id="product-dialog">
 
-    <button class="dialog-close" id="product-dialog-close" aria-label="Cerrar">
+    <button
+      class="dialog-close"
+      id="product-dialog-close"
+      aria-label="Cerrar"
+    >
       ×
     </button>
 
@@ -377,10 +401,7 @@
 
   </dialog>
 
-
-  <!-- =================================
-       WHATSAPP FLOTANTE
-  ================================== -->
+  <!-- WHATSAPP FLOTANTE -->
 
   <a
     class="whatsapp-float"
@@ -398,10 +419,7 @@
 
   </a>
 
-
-  <!-- =================================
-       PIE DE PÁGINA
-  ================================== -->
+  <!-- PIE DE PÁGINA -->
 
   <footer class="site-footer">
 
@@ -412,14 +430,22 @@
 
     <p>Fragancias que dejan huella.</p>
 
-    <p>© <span id="current-year">2026</span> Perfumes del Pacífico. Todos los derechos reservados.</p>
+    <p>
+      © <span id="current-year">2026</span>
+      Perfumes del Pacífico.
+      Todos los derechos reservados.
+    </p>
 
   </footer>
 
-
   <!-- MENSAJES DEL SISTEMA -->
 
-  <div class="toast-message" id="toast-message" role="status" aria-live="polite"></div>
+  <div
+    class="toast-message"
+    id="toast-message"
+    role="status"
+    aria-live="polite"
+  ></div>
 
 </body>
 </html>
