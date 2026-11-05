@@ -251,4 +251,62 @@ button,input,select{font:inherit}button{cursor:pointer}a{text-decoration:none;co
   .hero-products{height:195px}
   .catalog-grid .product-card-image{height:160px}
 }
-@media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}.product-card{transition:none}}
+@media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}.product-card{transition:none}}/* ==========================================
+   PERFUMES DEL PACIFICO
+   PORTADA MOVIL CON IMAGEN ORIGINAL
+   ========================================== */
+
+@media screen and (max-width: 760px) {
+
+  .hero {
+    width: 100%;
+    height: auto;
+    aspect-ratio: auto;
+    overflow: hidden;
+  }
+
+  .hero-reference-art,
+  .hero-reference-action {
+    display: none !important;
+  }
+
+  .hero-content {
+    display: flex !important;
+    flex-direction: column;
+    width: 100%;
+    padding: 25px 12px 15px;
+  }
+
+  .hero-copy {
+    display: block;
+    width: 100%;
+    text-align: center;
+  }
+
+  .hero-products {
+    display: block !important;
+    position: relative;
+    width: 100%;
+    height: clamp(180px, 55vw, 270px);
+    margin-top: 15px;
+
+    background-image: url("portada-franja.jpg");
+    background-repeat: no-repeat;
+    background-size: 200% 100%;
+    background-position: right center;
+
+    border-radius: 8px;
+    overflow: hidden;
+  }
+
+  .hero-products::before,
+  .hero-products::after {
+    display: none !important;
+  }
+
+  .hero-product,
+  .hero-product img {
+    display: none !important;
+  }
+
+}
