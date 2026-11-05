@@ -246,3 +246,31 @@ section{min-width:0;}
   .viewer-navigation {margin-top:9px;}
   .toast-message {width:calc(100% - 26px);bottom:12px;flex-wrap:wrap;font-size:12px;}
 }
+
+/* =========================================================
+   LOGO ORIGINAL Y FRASCOS DE EXHIBICIÓN — ARCHIVOS LOCALES
+   Sin fondo ni sustituciones externas.
+   ========================================================= */
+.brand-symbol { overflow:hidden; width:88px; height:70px; flex-shrink:0; }
+.brand-symbol::after { content:none; display:none; }
+.brand-symbol img { width:100%; height:100%; object-fit:contain; display:block; filter:none; }
+.hero-product { background:transparent; }
+.hero-product img,
+.hero-valentino img {
+  display:block;
+  width:100%;
+  height:100%;
+  padding:0;
+  margin:0;
+  object-fit:contain;
+  object-position:center bottom;
+  background:transparent;
+  mix-blend-mode:normal;
+  border-radius:0;
+  filter:drop-shadow(0 10px 12px rgba(0,0,0,.6));
+}
+@media(max-width:760px){
+  .brand-symbol{width:58px;height:54px;}
+  .hero-product img{max-height:210px;}
+}
+@media(max-width:380px){.brand-symbol{width:45px;height:46px;}}
