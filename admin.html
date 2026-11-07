@@ -2,817 +2,623 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="robots" content="noindex, nofollow">
-  <title>Administración | Perfumes del Pacífico</title>
-
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600;700&family=Montserrat:wght@400;500;600;700&display=swap" rel="stylesheet">
-
-  <style>
-    * { box-sizing: border-box; }
-
-    body {
-      margin: 0;
-      background: #f3f1eb;
-      color: #203b38;
-      font-family: 'Montserrat', sans-serif;
-    }
-
-    button, input, select, textarea {
-      font: inherit;
-    }
-
-    .header {
-      background: #123c3b;
-      color: white;
-      padding: 22px 5%;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      gap: 15px;
-      flex-wrap: wrap;
-    }
-
-    .header h1 {
-      margin: 0;
-      font-family: 'Cormorant Garamond', serif;
-      font-size: 30px;
-    }
-
-    .header p {
-      margin: 4px 0 0;
-      font-size: 12px;
-      color: #d9c99f;
-    }
-
-    .container {
-      width: min(1100px, 92%);
-      margin: 30px auto;
-    }
-
-    .panel {
-      background: white;
-      border-radius: 14px;
-      padding: 25px;
-      margin-bottom: 22px;
-      box-shadow: 0 5px 25px #0000000b;
-    }
-
-    h2 {
-      font-family: 'Cormorant Garamond', serif;
-      font-size: 28px;
-      margin: 0 0 18px;
-    }
-
-    .hidden { display: none !important; }
-
-    .login-panel {
-      max-width: 430px;
-      margin: 65px auto;
-    }
-
-    .field {
-      margin-bottom: 15px;
-    }
-
-    .field label {
-      display: block;
-      font-size: 13px;
-      font-weight: 600;
-      margin-bottom: 7px;
-    }
-
-    .field input,
-    .field select,
-    .field textarea {
-      width: 100%;
-      padding: 12px;
-      border: 1px solid #d9ded8;
-      border-radius: 8px;
-      background: white;
-      color: #203b38;
-      outline-color: #b89b59;
-    }
-
-    .field textarea {
-      min-height: 85px;
-      resize: vertical;
-    }
-
-    .form-grid {
-      display: grid;
-      grid-template-columns: repeat(2, minmax(0, 1fr));
-      gap: 0 16px;
-    }
-
-    .checks {
-      display: flex;
-      gap: 20px;
-      flex-wrap: wrap;
-      margin: 8px 0 20px;
-    }
-
-    .checks label {
-      display: flex;
-      align-items: center;
-      gap: 7px;
-      font-size: 13px;
-    }
-
-    .checks input {
-      accent-color: #123c3b;
-    }
-
-    .button {
-      border: 0;
-      border-radius: 8px;
-      padding: 12px 18px;
-      background: #123c3b;
-      color: white;
-      font-weight: 600;
-      cursor: pointer;
-    }
-
-    .button:hover { background: #205451; }
-    .button:disabled { opacity: .55; cursor: wait; }
-
-    .button.secondary {
-      background: #e9e6dc;
-      color: #203b38;
-    }
-
-    .button.danger { background: #9b3535; }
-
-    .actions {
-      display: flex;
-      gap: 10px;
-      flex-wrap: wrap;
-    }
-
-    .message {
-      padding: 12px;
-      border-radius: 8px;
-      margin: 12px 0;
-      font-size: 13px;
-      background: #f0eee7;
-      overflow-wrap: anywhere;
-    }
-
-    .product-list {
-      display: grid;
-      gap: 12px;
-    }
-
-    .product-row {
-      display: grid;
-      grid-template-columns: 75px minmax(0, 1fr) auto;
-      align-items: center;
-      gap: 15px;
-      padding: 12px;
-      border: 1px solid #e8e6df;
-      border-radius: 10px;
-    }
-
-    .product-row img {
-      width: 75px;
-      height: 75px;
-      object-fit: contain;
-      border-radius: 7px;
-      background: #f5f4ef;
-    }
-
-    .product-row h3 {
-      margin: 0 0 5px;
-      font-size: 15px;
-    }
-
-    .product-row p {
-      margin: 3px 0;
-      font-size: 12px;
-      color: #687672;
-    }
-
-    .product-row .actions {
-      justify-content: flex-end;
-    }
-
-    .small-button {
-      padding: 8px 11px;
-      font-size: 12px;
-    }
-
-    .top-note {
-      color: #687672;
-      font-size: 12px;
-      line-height: 1.6;
-      margin-top: -8px;
-      margin-bottom: 18px;
-    }
-
-    @media (max-width: 650px) {
-      .container { width: 94%; margin: 18px auto; }
-      .panel { padding: 17px; }
-      .form-grid { grid-template-columns: 1fr; }
-      .product-row {
-        grid-template-columns: 60px minmax(0, 1fr);
-      }
-      .product-row img {
-        width: 60px;
-        height: 60px;
-      }
-      .product-row .actions {
-        grid-column: 1 / -1;
-        justify-content: flex-start;
-      }
-      .header h1 { font-size: 25px; }
-    }
-  </style>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex,nofollow">
+<title>Administración | Perfumes del Pacífico</title>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@600;700&family=Montserrat:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+*{box-sizing:border-box}
+body{margin:0;background:#f3f1eb;color:#203b38;font-family:Montserrat,sans-serif}
+button,input,select,textarea{font:inherit}
+.header{background:#123c3b;color:white;padding:22px 5%;display:flex;justify-content:space-between;align-items:center;gap:15px;flex-wrap:wrap}
+.header h1{margin:0;font:700 30px 'Cormorant Garamond',serif}
+.header p{font-size:12px;color:#d9c99f}
+.container{width:min(1100px,94%);margin:25px auto}
+.panel{background:white;border-radius:14px;padding:25px;margin-bottom:22px;box-shadow:0 5px 25px #0000000b}
+h2{font:600 28px 'Cormorant Garamond',serif;margin:0 0 18px}
+.hidden{display:none!important}
+.login-panel{max-width:430px;margin:65px auto}
+.field{margin-bottom:15px}
+.field label{display:block;font-size:13px;font-weight:600;margin-bottom:7px}
+.field input,.field select,.field textarea{width:100%;padding:12px;border:1px solid #d9ded8;border-radius:8px;background:white;color:#203b38}
+.field textarea{min-height:85px;resize:vertical}
+.form-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:0 16px}
+.checks,.actions{display:flex;gap:12px;flex-wrap:wrap;margin:12px 0}
+.checks label{display:flex;align-items:center;gap:7px;font-size:13px}
+.button{border:0;border-radius:8px;padding:12px 18px;background:#123c3b;color:white;font-weight:600;cursor:pointer}
+.button:disabled{opacity:.55;cursor:wait}
+.button.secondary{background:#e9e6dc;color:#203b38}
+.button.danger{background:#9b3535}
+.small-button{padding:8px 11px;font-size:12px}
+.message{padding:12px;border-radius:8px;margin:12px 0;font-size:13px;background:#f0eee7;overflow-wrap:anywhere}
+.top-note{font-size:12px;color:#687672;line-height:1.6}
+.product-list{display:grid;gap:12px}
+.product-row{display:grid;grid-template-columns:75px minmax(0,1fr) auto;align-items:center;gap:15px;padding:12px;border:1px solid #e8e6df;border-radius:10px}
+.product-row img{width:75px;height:75px;object-fit:contain;border-radius:7px;background:#f5f4ef}
+.product-row h3{font-size:15px;margin:0 0 5px}
+.product-row p{font-size:12px;color:#687672;margin:3px 0}
+.photos{display:grid;grid-template-columns:repeat(auto-fill,minmax(125px,1fr));gap:12px;margin:12px 0}
+.photo-card{padding:8px;border:1px solid #ddd;border-radius:10px;text-align:center}
+.photo-card img{width:100%;height:110px;object-fit:contain}
+.photo-card button{margin:4px 2px}
+@media(max-width:650px){
+.panel{padding:17px}
+.form-grid{grid-template-columns:1fr}
+.product-row{grid-template-columns:60px minmax(0,1fr)}
+.product-row img{width:60px;height:60px}
+.product-row .actions{grid-column:1/-1}
+}
+</style>
 </head>
-
 <body>
 
-  <header class="header">
-    <div>
-      <h1>Perfumes del Pacífico</h1>
-      <p>Panel privado de administración</p>
-    </div>
-    <button id="logout-button" class="button secondary hidden" type="button">
-      Cerrar sesión
-    </button>
-  </header>
-
-  <main class="container">
-
-    <section id="login-section" class="panel login-panel">
-      <h2>Iniciar sesión</h2>
-      <p>Ingresá con la cuenta autorizada para administrar la tienda.</p>
-
-      <form id="login-form">
-        <div class="field">
-          <label for="login-email">Correo electrónico</label>
-          <input id="login-email" type="email" autocomplete="username" required>
-        </div>
-
-        <div class="field">
-          <label for="login-password">Contraseña</label>
-          <input id="login-password" type="password" autocomplete="current-password" required>
-        </div>
-
-        <button id="login-button" class="button" type="submit">
-          Entrar al panel
-        </button>
-      </form>
-
-      <div id="login-message" class="message hidden" role="status"></div>
-    </section>
-
-    <section id="admin-section" class="hidden">
-
-      <section class="panel">
-        <h2 id="form-title">Agregar perfume</h2>
-
-        <p class="top-note">
-          Completá los datos del producto. Para las fotografías, por ahora
-          se utiliza una dirección de imagen; habilitaremos la carga directa
-          cuando terminemos de configurar Storage en Supabase.
-        </p>
-
-        <form id="product-form">
-          <input id="product-id" type="hidden">
-
-          <div class="form-grid">
-            <div class="field">
-              <label for="product-name">Nombre del perfume *</label>
-              <input id="product-name" required maxlength="150">
-            </div>
-
-            <div class="field">
-              <label for="product-brand">Marca</label>
-              <input id="product-brand" maxlength="100">
-            </div>
-
-            <div class="field">
-              <label for="product-category">Categoría *</label>
-              <select id="product-category" required>
-                <option value="">Cargando categorías...</option>
-              </select>
-            </div>
-
-            <div class="field">
-              <label for="product-gender">Público</label>
-              <select id="product-gender">
-                <option value="">Sin especificar</option>
-                <option value="dama">Dama</option>
-                <option value="caballero">Caballero</option>
-                <option value="unisex">Unisex</option>
-              </select>
-            </div>
-
-            <div class="field">
-              <label for="product-price">Precio regular (₡) *</label>
-              <input id="product-price" type="number" min="0" step="1" required>
-            </div>
-
-            <div class="field">
-              <label for="product-offer-price">Precio de oferta (₡)</label>
-              <input id="product-offer-price" type="number" min="0" step="1">
-            </div>
-
-            <div class="field">
-              <label for="product-stock">Existencias</label>
-              <input id="product-stock" type="number" min="0" step="1" value="0">
-            </div>
-
-            <div class="field">
-              <label for="product-image">Dirección de la fotografía</label>
-              <input id="product-image" type="url" placeholder="https://...">
-            </div>
-
-            <div class="field">
-              <label for="top-women-order">Posición TOP 5 dama</label>
-              <select id="top-women-order">
-                <option value="">No incluir</option>
-                <option value="1">1</option>
-                <option value="2">2</option>
-                <option value="3">3</option>
-                <option value="4">4</option>
-                <option value="5">5</option>
-              </select>
-            </div>
-
-            <div class="field">
-              <label for="top-men-order">Posición TOP 5 caballero</label>
-              <select id="top-men-order">
-                <option value="">No incluir</option>
-                <option value="1">1</option>
-                <option value="2">2</option>
-                <option value="3">3</option>
-                <option value="4">4</option>
-                <option value="5">5</option>
-              </select>
-            </div>
-          </div>
-
-          <div class="field">
-            <label for="product-description">Descripción</label>
-            <textarea id="product-description"></textarea>
-          </div>
-
-          <div class="checks">
-            <label>
-              <input id="product-active" type="checkbox" checked>
-              Producto visible
-            </label>
-
-            <label>
-              <input id="product-offer" type="checkbox">
-              Es una oferta
-            </label>
-
-            <label>
-              <input id="product-bestseller" type="checkbox">
-              Es más vendido
-            </label>
-          </div>
-
-          <div class="actions">
-            <button id="save-button" class="button" type="submit">
-              Guardar perfume
-            </button>
-
-            <button id="cancel-edit" class="button secondary hidden" type="button">
-              Cancelar edición
-            </button>
-          </div>
-
-          <div id="form-message" class="message hidden" role="status"></div>
-        </form>
-      </section>
-
-      <section class="panel">
-        <h2>Productos de la tienda</h2>
-        <div id="products-message" class="message hidden" role="status"></div>
-        <div id="products-list" class="product-list">
-          <p>Cargando productos...</p>
-        </div>
-      </section>
-
-    </section>
-  </main>
-
-  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
-  <script src="config.js"></script>
-
-  <script>
-    (() => {
-      "use strict";
-
-      const $ = selector => document.querySelector(selector);
-
-      let db = null;
-      let categories = [];
-
-      const loginSection = $("#login-section");
-      const adminSection = $("#admin-section");
-      const loginMessage = $("#login-message");
-      const formMessage = $("#form-message");
-      const productsMessage = $("#products-message");
-
-      function showMessage(element, message) {
-        element.textContent = message;
-        element.classList.remove("hidden");
-      }
-
-      function hideMessage(element) {
-        element.textContent = "";
-        element.classList.add("hidden");
-      }
-
-      function escapeHTML(value = "") {
-        return String(value).replace(/[&<>"']/g, char => ({
-          "&": "&amp;",
-          "<": "&lt;",
-          ">": "&gt;",
-          '"': "&quot;",
-          "'": "&#039;"
-        })[char]);
-      }
-
-      function money(value) {
-        return new Intl.NumberFormat("es-CR", {
-          style: "currency",
-          currency: "CRC",
-          maximumFractionDigits: 0
-        }).format(Number(value) || 0);
-      }
-
-      function setLoggedIn(isLoggedIn) {
-        loginSection.classList.toggle("hidden", isLoggedIn);
-        adminSection.classList.toggle("hidden", !isLoggedIn);
-        $("#logout-button").classList.toggle("hidden", !isLoggedIn);
-      }
-
-      async function loadCategories() {
-        const { data, error } = await db
-          .from("categories")
-          .select("id, name, is_active, sort_order")
-          .eq("is_active", true)
-          .order("sort_order", { ascending: true });
-
-        if (error) throw error;
-
-        categories = data || [];
-
-        $("#product-category").innerHTML =
-          '<option value="">Seleccioná una categoría</option>' +
-          categories.map(category => `
-            <option value="${escapeHTML(category.id)}">
-              ${escapeHTML(category.name)}
-            </option>
-          `).join("");
-      }
-
-      async function loadProducts() {
-        hideMessage(productsMessage);
-
-        const list = $("#products-list");
-        list.innerHTML = "<p>Cargando productos...</p>";
-
-        const { data, error } = await db
-          .from("products")
-          .select("*")
-          .order("created_at", { ascending: false });
-
-        if (error) {
-          list.innerHTML = "";
-          showMessage(
-            productsMessage,
-            "No se pudieron cargar los productos. Revisá que tu usuario tenga permisos de administrador. Detalle: " + error.message
-          );
-          return;
-        }
-
-        if (!data || data.length === 0) {
-          list.innerHTML = "<p>Todavía no hay productos registrados.</p>";
-          return;
-        }
-
-        list.innerHTML = data.map(product => {
-          const category = categories.find(
-            item => item.id === product.category_id
-          );
-
-          const image = product.image_url
-            ? `<img src="${escapeHTML(product.image_url)}" alt=""
-                 onerror="this.style.visibility='hidden'">`
-            : `<div style="width:75px;height:75px;background:#f5f4ef;border-radius:7px"></div>`;
-
-          return `
-            <article class="product-row">
-              ${image}
-
-              <div>
-                <h3>${escapeHTML(product.name)}</h3>
-                <p>${escapeHTML(product.brand || "")}</p>
-                <p>${escapeHTML(category ? category.name : "Sin categoría")} · ${money(product.price)}</p>
-                <p>Existencias: ${Number(product.stock) || 0} · ${product.is_active ? "Visible" : "Oculto"}</p>
-              </div>
-
-              <div class="actions">
-                <button class="button small-button"
-                  type="button"
-                  data-edit="${escapeHTML(product.id)}">
-                  Editar
-                </button>
-
-                <button class="button danger small-button"
-                  type="button"
-                  data-delete="${escapeHTML(product.id)}">
-                  Eliminar
-                </button>
-              </div>
-            </article>
-          `;
-        }).join("");
-      }
-
-      function resetForm() {
-        $("#product-form").reset();
-        $("#product-id").value = "";
-        $("#product-stock").value = "0";
-        $("#product-active").checked = true;
-        $("#form-title").textContent = "Agregar perfume";
-        $("#save-button").textContent = "Guardar perfume";
-        $("#cancel-edit").classList.add("hidden");
-        hideMessage(formMessage);
-      }
-
-      function editProduct(product) {
-        $("#product-id").value = product.id;
-        $("#product-name").value = product.name || "";
-        $("#product-brand").value = product.brand || "";
-        $("#product-category").value = product.category_id || "";
-        $("#product-gender").value = product.gender || "";
-        $("#product-price").value = product.price ?? "";
-        $("#product-offer-price").value = product.offer_price ?? "";
-        $("#product-stock").value = product.stock ?? 0;
-        $("#product-image").value = product.image_url || "";
-        $("#product-description").value = product.description || "";
-        $("#product-active").checked = Boolean(product.is_active);
-        $("#product-offer").checked = Boolean(product.is_offer);
-        $("#product-bestseller").checked = Boolean(product.is_bestseller);
-        $("#top-women-order").value = product.top_women_order || "";
-        $("#top-men-order").value = product.top_men_order || "";
-
-        $("#form-title").textContent = "Editar perfume";
-        $("#save-button").textContent = "Guardar cambios";
-        $("#cancel-edit").classList.remove("hidden");
-
-        hideMessage(formMessage);
-        window.scrollTo({ top: 0, behavior: "smooth" });
-      }
-
-      async function saveProduct(event) {
-        event.preventDefault();
-        hideMessage(formMessage);
-
-        const saveButton = $("#save-button");
-        saveButton.disabled = true;
-
-        const price = Number($("#product-price").value);
-        const offerInput = $("#product-offer-price").value;
-        const offerPrice = offerInput === "" ? null : Number(offerInput);
-        const stock = Number($("#product-stock").value);
-
-        if (!Number.isFinite(price) || price < 0) {
-          showMessage(formMessage, "Ingresá un precio válido.");
-          saveButton.disabled = false;
-          return;
-        }
-
-        if (!Number.isInteger(stock) || stock < 0) {
-          showMessage(formMessage, "Las existencias deben ser un número entero igual o mayor que cero.");
-          saveButton.disabled = false;
-          return;
-        }
-
-        const isOffer = $("#product-offer").checked;
-
-        if (isOffer && (
-          offerPrice === null ||
-          !Number.isFinite(offerPrice) ||
-          offerPrice <= 0 ||
-          offerPrice >= price
-        )) {
-          showMessage(
-            formMessage,
-            "Para activar una oferta, ingresá un precio menor que el precio regular."
-          );
-          saveButton.disabled = false;
-          return;
-        }
-
-        const product = {
-          name: $("#product-name").value.trim(),
-          brand: $("#product-brand").value.trim() || null,
-          description: $("#product-description").value.trim() || null,
-          category_id: $("#product-category").value || null,
-          gender: $("#product-gender").value || null,
-          price,
-          offer_price: offerPrice,
-          image_url: $("#product-image").value.trim() || null,
-          stock,
-          is_active: $("#product-active").checked,
-          is_offer: isOffer,
-          is_bestseller: $("#product-bestseller").checked,
-          top_women_order: $("#top-women-order").value
-            ? Number($("#top-women-order").value) : null,
-          top_men_order: $("#top-men-order").value
-            ? Number($("#top-men-order").value) : null
-        };
-
-        const id = $("#product-id").value;
-
-        try {
-          let result;
-
-          if (id) {
-            result = await db
-              .from("products")
-              .update(product)
-              .eq("id", id);
-          } else {
-            result = await db
-              .from("products")
-              .insert(product);
-          }
-
-          if (result.error) throw result.error;
-
-          showMessage(
-            formMessage,
-            id ? "Producto actualizado correctamente." : "Producto agregado correctamente."
-          );
-
-          resetForm();
-          await loadProducts();
-        } catch (error) {
-          console.error(error);
-          showMessage(
-            formMessage,
-            "No se pudo guardar. Verificá los permisos de administrador y los datos. Detalle: " + error.message
-          );
-        } finally {
-          saveButton.disabled = false;
-        }
-      }
-
-      async function deleteProduct(id) {
-        if (!confirm("¿Seguro que querés eliminar este perfume?")) return;
-
-        const { error } = await db
-          .from("products")
-          .delete()
-          .eq("id", id);
-
-        if (error) {
-          showMessage(
-            productsMessage,
-            "No se pudo eliminar. Revisá los permisos. Detalle: " + error.message
-          );
-          return;
-        }
-
-        showMessage(productsMessage, "Producto eliminado.");
-        await loadProducts();
-      }
-
-      async function handleLogin(event) {
-        event.preventDefault();
-        hideMessage(loginMessage);
-
-        const button = $("#login-button");
-        button.disabled = true;
-
-        const email = $("#login-email").value.trim();
-        const password = $("#login-password").value;
-
-        const { error } = await db.auth.signInWithPassword({
-          email,
-          password
-        });
-
-        button.disabled = false;
-
-        if (error) {
-          showMessage(
-            loginMessage,
-            "No se pudo iniciar sesión. Revisá el correo y la contraseña. " + error.message
-          );
-          return;
-        }
-
-        await showAdmin();
-      }
-
-      async function showAdmin() {
-        setLoggedIn(true);
-
-        try {
-          await loadCategories();
-          await loadProducts();
-        } catch (error) {
-          console.error(error);
-          showMessage(
-            productsMessage,
-            "No se pudieron cargar los datos. " + error.message
-          );
-        }
-      }
-
-      async function logout() {
-        const { error } = await db.auth.signOut();
-
-        if (error) {
-          showMessage(loginMessage, error.message);
-          return;
-        }
-
-        setLoggedIn(false);
-        resetForm();
-      }
-
-      async function initialize() {
-        if (!window.supabase || !window.SUPABASE_URL ||
-            !window.SUPABASE_ANON_KEY) {
-          showMessage(
-            loginMessage,
-            "Falta cargar la librería o la configuración de Supabase. Revisá config.js."
-          );
-          return;
-        }
-
-        db = window.supabase.createClient(
-          window.SUPABASE_URL,
-          window.SUPABASE_ANON_KEY
-        );
-
-        $("#login-form").addEventListener("submit", handleLogin);
-        $("#product-form").addEventListener("submit", saveProduct);
-        $("#logout-button").addEventListener("click", logout);
-        $("#cancel-edit").addEventListener("click", resetForm);
-
-        $("#products-list").addEventListener("click", async event => {
-          const editButton = event.target.closest("[data-edit]");
-          const deleteButton = event.target.closest("[data-delete]");
-
-          if (editButton) {
-            const id = editButton.dataset.edit;
-
-            const { data, error } = await db
-              .from("products")
-              .select("*")
-              .eq("id", id)
-              .single();
-
-            if (error) {
-              showMessage(productsMessage, error.message);
-              return;
-            }
-
-            editProduct(data);
-          }
-
-          if (deleteButton) {
-            await deleteProduct(deleteButton.dataset.delete);
-          }
-        });
-
-        const { data, error } = await db.auth.getSession();
-
-        if (error) {
-          showMessage(loginMessage, error.message);
-          return;
-        }
-
-        if (data.session) {
-          await showAdmin();
-        } else {
-          setLoggedIn(false);
-        }
-
-        db.auth.onAuthStateChange((event, session) => {
-          if (event === "SIGNED_OUT" || !session) {
-            setLoggedIn(false);
-          }
-        });
-      }
-
-      document.addEventListener("DOMContentLoaded", initialize);
-    })();
-  </script>
-
+<header class="header">
+<div>
+<h1>Perfumes del Pacífico</h1>
+<p>Panel privado de administración</p>
+</div>
+<button id="logout-button" class="button secondary hidden" type="button">Cerrar sesión</button>
+</header>
+
+<main class="container">
+
+<section id="login-section" class="panel login-panel">
+<h2>Iniciar sesión</h2>
+<p>Ingresá con la cuenta autorizada.</p>
+<form id="login-form">
+<div class="field">
+<label>Correo electrónico</label>
+<input id="login-email" type="email" required autocomplete="username">
+</div>
+<div class="field">
+<label>Contraseña</label>
+<input id="login-password" type="password" required autocomplete="current-password">
+</div>
+<button id="login-button" class="button" type="submit">Entrar al panel</button>
+</form>
+<div id="login-message" class="message hidden"></div>
+</section>
+
+<section id="admin-section" class="hidden">
+
+<section class="panel">
+<h2 id="form-title">Agregar perfume</h2>
+<p class="top-note">Agregá productos y fotografías directamente desde tu celular o computadora.</p>
+
+<form id="product-form">
+<input id="product-id" type="hidden">
+
+<div class="form-grid">
+
+<div class="field">
+<label>Nombre del perfume *</label>
+<input id="product-name" maxlength="150" required>
+</div>
+
+<div class="field">
+<label>Marca</label>
+<input id="product-brand" maxlength="100">
+</div>
+
+<div class="field">
+<label>Categoría *</label>
+<select id="product-category" required>
+<option value="">Cargando categorías...</option>
+</select>
+</div>
+
+<div class="field">
+<label>Público</label>
+<select id="product-gender">
+<option value="">Sin especificar</option>
+<option value="dama">Dama</option>
+<option value="caballero">Caballero</option>
+<option value="unisex">Unisex</option>
+</select>
+</div>
+
+<div class="field">
+<label>Precio regular (₡) *</label>
+<input id="product-price" type="number" min="0" step="1" required>
+</div>
+
+<div class="field">
+<label>Precio de oferta (₡)</label>
+<input id="product-offer-price" type="number" min="0" step="1">
+</div>
+
+<div class="field">
+<label>Existencias</label>
+<input id="product-stock" type="number" min="0" step="1" value="0">
+</div>
+
+<div class="field">
+<label>Enlace de fotografía (opcional)</label>
+<input id="product-image" type="url" placeholder="https://...">
+</div>
+
+<div class="field">
+<label>Posición TOP 5 dama</label>
+<select id="top-women-order">
+<option value="">No incluir</option>
+<option value="1">1</option><option value="2">2</option>
+<option value="3">3</option><option value="4">4</option>
+<option value="5">5</option>
+</select>
+</div>
+
+<div class="field">
+<label>Posición TOP 5 caballero</label>
+<select id="top-men-order">
+<option value="">No incluir</option>
+<option value="1">1</option><option value="2">2</option>
+<option value="3">3</option><option value="4">4</option>
+<option value="5">5</option>
+</select>
+</div>
+</div>
+
+<div class="field">
+<label>Fotografías desde tu galería (máximo 5)</label>
+<input id="product-photos" type="file" accept="image/jpeg,image/png,image/webp" multiple>
+<p class="top-note">Las imágenes se comprimen automáticamente a WebP.</p>
+<div id="photos-preview" class="photos"></div>
+</div>
+
+<div class="field">
+<label>Descripción</label>
+<textarea id="product-description"></textarea>
+</div>
+
+<div class="checks">
+<label><input id="product-active" type="checkbox" checked> Producto visible</label>
+<label><input id="product-offer" type="checkbox"> Es una oferta</label>
+<label><input id="product-bestseller" type="checkbox"> Es más vendido</label>
+</div>
+
+<div class="actions">
+<button id="save-button" class="button" type="submit">Guardar perfume</button>
+<button id="cancel-edit" class="button secondary hidden" type="button">Cancelar edición</button>
+</div>
+<div id="form-message" class="message hidden" role="status"></div>
+</form>
+</section>
+
+<section class="panel">
+<h2>Productos de la tienda</h2>
+<div id="products-message" class="message hidden"></div>
+<div id="products-list" class="product-list"></div>
+</section>
+
+</section>
+</main>
+
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+<script src="config.js"></script>
+
+<script>
+(() => {
+"use strict";
+
+const $ = s => document.querySelector(s);
+const BUCKET = "Perfumes";
+let db = null;
+let categories = [];
+let savedPhotos = [];
+let newPhotos = [];
+
+const loginMessage = $("#login-message");
+const formMessage = $("#form-message");
+const productsMessage = $("#products-message");
+
+function showMessage(el,msg){
+  el.textContent=msg;
+  el.classList.remove("hidden");
+}
+function hideMessage(el){
+  el.textContent="";
+  el.classList.add("hidden");
+}
+function escapeHTML(v=""){
+  return String(v??"").replace(/[&<>"']/g,c=>({
+    "&":"&amp;","<":"&lt;",">":"&gt;",
+    '"':"&quot;","'":"&#039;"
+  })[c]);
+}
+function money(v){
+  return new Intl.NumberFormat("es-CR",{
+    style:"currency",currency:"CRC",maximumFractionDigits:0
+  }).format(Number(v)||0);
+}
+function setLoggedIn(ok){
+  $("#login-section").classList.toggle("hidden",ok);
+  $("#admin-section").classList.toggle("hidden",!ok);
+  $("#logout-button").classList.toggle("hidden",!ok);
+}
+
+async function loadCategories(){
+  const {data,error}=await db.from("categories")
+    .select("id,name,is_active,sort_order")
+    .eq("is_active",true)
+    .order("sort_order",{ascending:true});
+  if(error)throw error;
+  categories=data||[];
+  $("#product-category").innerHTML=
+    '<option value="">Seleccioná una categoría</option>'+
+    categories.map(c=>`<option value="${escapeHTML(c.id)}">${escapeHTML(c.name)}</option>`).join("");
+}
+
+async function loadProducts(){
+  hideMessage(productsMessage);
+  const list=$("#products-list");
+  list.textContent="Cargando productos...";
+  const {data,error}=await db.from("products")
+    .select("*").order("created_at",{ascending:false});
+  if(error){
+    list.textContent="";
+    showMessage(productsMessage,error.message);
+    return;
+  }
+  if(!data?.length){
+    list.textContent="Todavía no hay productos.";
+    return;
+  }
+  list.innerHTML=data.map(p=>{
+    const category=categories.find(c=>c.id===p.category_id);
+    const image=p.image_url
+      ? `<img src="${escapeHTML(p.image_url)}" alt="">`
+      : '<div style="width:75px;height:75px;background:#eee"></div>';
+    return `<article class="product-row">
+      ${image}
+      <div>
+        <h3>${escapeHTML(p.name)}</h3>
+        <p>${escapeHTML(p.brand||"")}</p>
+        <p>${escapeHTML(category?.name||"Sin categoría")} · ${money(p.price)}</p>
+        <p>Existencias: ${Number(p.stock)||0} · ${p.is_active?"Visible":"Oculto"}</p>
+      </div>
+      <div class="actions">
+        <button class="button small-button" data-edit="${escapeHTML(p.id)}">Editar</button>
+        <button class="button danger small-button" data-delete="${escapeHTML(p.id)}">Eliminar</button>
+      </div>
+    </article>`;
+  }).join("");
+}
+
+function clearNewPhotos(){
+  newPhotos.forEach(p=>URL.revokeObjectURL(p.preview));
+  newPhotos=[];
+  $("#product-photos").value="";
+}
+
+function renderPhotos(){
+  const area=$("#photos-preview");
+  area.innerHTML="";
+
+  savedPhotos.forEach((url,i)=>{
+    const card=document.createElement("div");
+    card.className="photo-card";
+    const img=document.createElement("img");
+    img.src=url;
+    img.alt="Fotografía del producto";
+    card.append(img);
+
+    const title=document.createElement("p");
+    title.textContent=i===0?"Principal":"Fotografía "+(i+1);
+    card.append(title);
+
+    if(i!==0){
+      const main=document.createElement("button");
+      main.type="button";
+      main.className="button secondary small-button";
+      main.textContent="Principal";
+      main.onclick=()=>{
+        savedPhotos.splice(i,1);
+        savedPhotos.unshift(url);
+        renderPhotos();
+      };
+      card.append(main);
+    }
+
+    const remove=document.createElement("button");
+    remove.type="button";
+    remove.className="button danger small-button";
+    remove.textContent="Quitar";
+    remove.onclick=()=>{
+      savedPhotos.splice(i,1);
+      $("#product-image").value=savedPhotos[0]||"";
+      renderPhotos();
+    };
+    card.append(remove);
+    area.append(card);
+  });
+
+  newPhotos.forEach((photo,i)=>{
+    const card=document.createElement("div");
+    card.className="photo-card";
+    const img=document.createElement("img");
+    img.src=photo.preview;
+    img.alt="Nueva fotografía";
+    card.append(img);
+
+    const title=document.createElement("p");
+    title.textContent="Nueva fotografía";
+    card.append(title);
+
+    const remove=document.createElement("button");
+    remove.type="button";
+    remove.className="button danger small-button";
+    remove.textContent="Quitar";
+    remove.onclick=()=>{
+      URL.revokeObjectURL(photo.preview);
+      newPhotos.splice(i,1);
+      renderPhotos();
+    };
+    card.append(remove);
+    area.append(card);
+  });
+}
+
+$("#product-photos").addEventListener("change",e=>{
+  const files=Array.from(e.target.files);
+  if(savedPhotos.length+newPhotos.length+files.length>5){
+    showMessage(formMessage,"Máximo cinco fotografías por perfume.");
+    e.target.value="";
+    return;
+  }
+  for(const file of files){
+    if(!["image/jpeg","image/png","image/webp"].includes(file.type)){
+      showMessage(formMessage,"Solo JPG, PNG o WebP.");
+      continue;
+    }
+    newPhotos.push({
+      file,
+      preview:URL.createObjectURL(file)
+    });
+  }
+  e.target.value="";
+  renderPhotos();
+});
+
+async function compressPhoto(file){
+  if(file.size>15*1024*1024){
+    throw new Error("Una fotografía supera 15 MB.");
+  }
+  const bitmap=await createImageBitmap(file);
+  const scale=Math.min(1,1200/Math.max(bitmap.width,bitmap.height));
+  const canvas=document.createElement("canvas");
+  canvas.width=Math.max(1,Math.round(bitmap.width*scale));
+  canvas.height=Math.max(1,Math.round(bitmap.height*scale));
+  canvas.getContext("2d").drawImage(bitmap,0,0,canvas.width,canvas.height);
+  bitmap.close();
+  const blob=await new Promise(resolve=>canvas.toBlob(resolve,"image/webp",0.78));
+  if(!blob)throw new Error("No se pudo comprimir la fotografía.");
+  return blob;
+}
+
+async function uploadPhotos(photos){
+  const urls=[];
+  for(const photo of photos){
+    const blob=await compressPhoto(photo.file);
+    const path=`catalogo/${crypto.randomUUID()}.webp`;
+    const {error}=await db.storage.from(BUCKET).upload(path,blob,{
+      contentType:"image/webp",
+      upsert:false
+    });
+    if(error)throw error;
+    const {data}=db.storage.from(BUCKET).getPublicUrl(path);
+    urls.push(data.publicUrl);
+  }
+  return urls;
+}
+
+function resetForm(){
+  $("#product-form").reset();
+  $("#product-id").value="";
+  $("#product-stock").value="0";
+  $("#product-active").checked=true;
+  $("#form-title").textContent="Agregar perfume";
+  $("#save-button").textContent="Guardar perfume";
+  $("#cancel-edit").classList.add("hidden");
+  savedPhotos=[];
+  clearNewPhotos();
+  renderPhotos();
+  hideMessage(formMessage);
+}
+
+function editProduct(p){
+  resetForm();
+  $("#product-id").value=p.id;
+  $("#product-name").value=p.name||"";
+  $("#product-brand").value=p.brand||"";
+  $("#product-category").value=p.category_id||"";
+  $("#product-gender").value=p.gender||"";
+  $("#product-price").value=p.price??"";
+  $("#product-offer-price").value=p.offer_price??"";
+  $("#product-stock").value=p.stock??0;
+  $("#product-image").value=p.image_url||"";
+  $("#product-description").value=p.description||"";
+  $("#product-active").checked=Boolean(p.is_active);
+  $("#product-offer").checked=Boolean(p.is_offer);
+  $("#product-bestseller").checked=Boolean(p.is_bestseller);
+  $("#top-women-order").value=p.top_women_order||"";
+  $("#top-men-order").value=p.top_men_order||"";
+  savedPhotos=Array.isArray(p.images)&&p.images.length
+    ? [...p.images] : (p.image_url?[p.image_url]:[]);
+  renderPhotos();
+  $("#form-title").textContent="Editar perfume";
+  $("#save-button").textContent="Guardar cambios";
+  $("#cancel-edit").classList.remove("hidden");
+  window.scrollTo({top:0,behavior:"smooth"});
+}
+
+async function saveProduct(event){
+  event.preventDefault();
+  hideMessage(formMessage);
+  const button=$("#save-button");
+  button.disabled=true;
+
+  try{
+    const price=Number($("#product-price").value);
+    const rawOffer=$("#product-offer-price").value;
+    const offerPrice=rawOffer===""?null:Number(rawOffer);
+    const stock=Number($("#product-stock").value);
+    const isOffer=$("#product-offer").checked;
+
+    if(!Number.isFinite(price)||price<0)throw new Error("Precio inválido.");
+    if(!Number.isInteger(stock)||stock<0)throw new Error("Existencias inválidas.");
+    if(isOffer&&(offerPrice===null||offerPrice<=0||offerPrice>=price)){
+      throw new Error("El precio de oferta debe ser menor que el regular.");
+    }
+
+    const manual=$("#product-image").value.trim();
+    let photos=[...savedPhotos];
+    if(manual&&!photos.includes(manual))photos.unshift(manual);
+
+    if(photos.length+newPhotos.length>5){
+      throw new Error("Máximo cinco fotografías.");
+    }
+
+    if(newPhotos.length){
+      showMessage(formMessage,"Comprimiendo y subiendo fotografías...");
+      const urls=await uploadPhotos(newPhotos);
+      photos.push(...urls);
+    }
+
+    const product={
+      name:$("#product-name").value.trim(),
+      brand:$("#product-brand").value.trim()||null,
+      description:$("#product-description").value.trim()||null,
+      category_id:$("#product-category").value||null,
+      gender:$("#product-gender").value||null,
+      price,
+      offer_price:offerPrice,
+      image_url:photos[0]||null,
+      images:photos,
+      stock,
+      is_active:$("#product-active").checked,
+      is_offer:isOffer,
+      is_bestseller:$("#product-bestseller").checked,
+      top_women_order:$("#top-women-order").value
+        ?Number($("#top-women-order").value):null,
+      top_men_order:$("#top-men-order").value
+        ?Number($("#top-men-order").value):null
+    };
+
+    const id=$("#product-id").value;
+    const query=db.from("products");
+    const {error}=id
+      ?await query.update(product).eq("id",id)
+      :await query.insert(product);
+
+    if(error)throw error;
+
+    resetForm();
+    await loadProducts();
+    showMessage(formMessage,id
+      ?"Producto actualizado correctamente."
+      :"Producto agregado correctamente.");
+  }catch(error){
+    console.error(error);
+    showMessage(formMessage,"No se pudo guardar: "+error.message);
+  }finally{
+    button.disabled=false;
+  }
+}
+
+async function deleteProduct(id){
+  if(!confirm("¿Seguro que querés eliminar este perfume?"))return;
+  const {error}=await db.from("products").delete().eq("id",id);
+  if(error){
+    showMessage(productsMessage,error.message);
+    return;
+  }
+  await loadProducts();
+  showMessage(productsMessage,"Producto eliminado.");
+}
+
+async function handleLogin(event){
+  event.preventDefault();
+  hideMessage(loginMessage);
+  const button=$("#login-button");
+  button.disabled=true;
+  try{
+    const {error}=await db.auth.signInWithPassword({
+      email:$("#login-email").value.trim(),
+      password:$("#login-password").value
+    });
+    if(error)throw error;
+    await showAdmin();
+  }catch(error){
+    showMessage(loginMessage,error.message);
+  }finally{
+    button.disabled=false;
+  }
+}
+
+async function showAdmin(){
+  setLoggedIn(true);
+  try{
+    await loadCategories();
+    await loadProducts();
+  }catch(error){
+    showMessage(productsMessage,error.message);
+  }
+}
+
+async function logout(){
+  const {error}=await db.auth.signOut();
+  if(error){
+    showMessage(loginMessage,error.message);
+    return;
+  }
+  resetForm();
+  setLoggedIn(false);
+}
+
+async function initialize(){
+  if(!window.supabase||!window.SUPABASE_URL||!window.SUPABASE_ANON_KEY){
+    showMessage(loginMessage,"Falta la configuración de Supabase en config.js.");
+    return;
+  }
+  db=window.supabase.createClient(
+    window.SUPABASE_URL,
+    window.SUPABASE_ANON_KEY
+  );
+
+  $("#login-form").addEventListener("submit",handleLogin);
+  $("#product-form").addEventListener("submit",saveProduct);
+  $("#logout-button").addEventListener("click",logout);
+  $("#cancel-edit").addEventListener("click",resetForm);
+
+  $("#products-list").addEventListener("click",async event=>{
+    const edit=event.target.closest("[data-edit]");
+    const del=event.target.closest("[data-delete]");
+
+    if(edit){
+      const {data,error}=await db.from("products")
+        .select("*").eq("id",edit.dataset.edit).single();
+      if(error)showMessage(productsMessage,error.message);
+      else editProduct(data);
+    }
+    if(del)await deleteProduct(del.dataset.delete);
+  });
+
+  const {data,error}=await db.auth.getSession();
+  if(error){
+    showMessage(loginMessage,error.message);
+    return;
+  }
+  if(data.session)await showAdmin();
+  else setLoggedIn(false);
+
+  db.auth.onAuthStateChange((event,session)=>{
+    if(event==="SIGNED_OUT"||!session)setLoggedIn(false);
+  });
+}
+
+document.addEventListener("DOMContentLoaded",initialize);
+})();
+</script>
 </body>
 </html>
